@@ -172,3 +172,42 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.add('dark');
     }
 })();
+document.addEventListener('DOMContentLoaded', () => {
+    const containers = ['focus-scroll-container', 'interests-scroll-container'];
+    
+    containers.forEach(id => {
+        const carousel = document.getElementById(id);
+        if (!carousel) return;
+
+        let isAutoScrolling = true;
+        const scrollInterval = 3000; // Slide every 4 seconds
+
+        function autoSlide() {
+            // Only run on mobile (when the element is a flex container, not a grid)
+            if (window.innerWidth >= 768 || !isAutoScrolling) return;
+
+            const firstChild = carousel.firstElementChild;
+            if (!firstChild) return;
+
+            const cardWidth = firstChild.offsetWidth + 24; // Card + Gap
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            if (carousel.scrollLeft >= maxScroll - 10) {
+                // Reset to beginning if at the end
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                // Move to next card
+                carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+            }
+        }
+
+        // Start interval
+        let slideTimer = setInterval(autoSlide, scrollInterval);
+
+        // Pause auto-slide when user touches the carousel
+        carousel.addEventListener('touchstart', () => {
+            isAutoScrolling = false;
+            clearInterval(slideTimer);
+        }, { passive: true });
+    });
+});

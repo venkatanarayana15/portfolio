@@ -46,593 +46,22 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             darkMode: 'class',
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
+                        inter: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
                     },
                 }
             }
         }
     </script>
-    <style>
-        :root {
-            --bg-primary: #FAFAFA;
-            --bg-secondary: #F4F4F5;
-            --bg-card: rgba(255, 255, 255, 0.6);
-            --bg-card-hover: rgba(255, 255, 255, 0.9);
-            --text-primary: #09090B;
-            --text-secondary: #3F3F46;
-            --text-muted: #71717A;
-            --accent-primary: #4F46E5;
-            --accent-secondary: #EC4899;
-            --border-color: rgba(79, 70, 229, 0.15);
-            --glow-color: rgba(79, 70, 229, 0.15);
-        }
-        
-        .dark {
-            --bg-primary: #09090B;
-            --bg-secondary: #0A0A0B;
-            --bg-card: rgba(24, 24, 27, 0.5);
-            --bg-card-hover: rgba(39, 39, 42, 0.7);
-            --text-primary: #FAFAFA;
-            --text-secondary: #A1A1AA;
-            --text-muted: #71717A;
-            --accent-primary: #8B5CF6;
-            --accent-secondary: #06B6D4;
-            --border-color: rgba(139, 92, 246, 0.2);
-            --glow-color: rgba(139, 92, 246, 0.25);
-        }
-        
-        * {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-        
-        .skip-link {
-            position: absolute;
-            top: -40px;
-            left: 0;
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            padding: 8px 16px;
-            z-index: 100;
-            transition: top 0.3s;
-        }
-        
-        .skip-link:focus {
-            top: 0;
-        }
-        
-        .bg-primary { background-color: var(--bg-primary); }
-        .bg-secondary { background-color: var(--bg-secondary); }
-        .bg-card { 
-            background-color: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-        }
-        .bg-card-hover:hover { background-color: var(--bg-card-hover); }
-        .text-primary { color: var(--text-primary); }
-        .text-secondary { color: var(--text-secondary); }
-        .text-muted { color: var(--text-muted); }
-        .text-accent { color: var(--accent-primary); }
-        .text-accent-secondary { color: var(--accent-secondary); }
-        .border-theme { border-color: var(--border-color); }
-        .bg-accent { background-color: var(--accent-primary); }
-        .bg-accent-secondary { background-color: var(--accent-secondary); }
-        
-        .glow-accent {
-            box-shadow: 0 0 20px var(--glow-color);
-        }
-        
-        .glow-accent-subtle {
-            box-shadow: 0 0 10px var(--glow-color);
-        }
-        
-        .text-glow {
-            text-shadow: 0 0 10px var(--glow-color);
-        }
-        
-        .gradient-border {
-            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-        }
-        
-        .gradient-accent {
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-        }
-        
-        .hero-glow {
-            background: radial-gradient(circle, var(--glow-color) 0%, transparent 70%);
-        }
-        
-        .card-hover:hover {
-            transform: translateY(-6px) scale(1.02);
-            border-color: var(--accent-primary);
-            box-shadow: 0 15px 30px -10px var(--glow-color);
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-        
-        .community-card {
-            border-color: rgba(244, 63, 94, 0.3);
-            background: linear-gradient(135deg, var(--bg-card) 0%, rgba(244, 63, 94, 0.05) 100%);
-        }
-        
-        .dark .community-card {
-            border-color: rgba(251, 113, 133, 0.2);
-            background: linear-gradient(135deg, #134E4A 0%, rgba(251, 113, 133, 0.03) 100%);
-        }
-        
-        .community-card:hover {
-            border-color: var(--accent-secondary);
-            box-shadow: 0 0 15px rgba(244, 63, 94, 0.2);
-        }
-        
-        .featured-badge {
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-        }
-        
-        .bullet::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0.5rem;
-            width: 6px;
-            height: 6px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            opacity: 0.6;
-        }
-        
-        .bullet-gold::before {
-            background: var(--accent-secondary);
-            opacity: 1;
-            box-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
-        }
-        
-        .nav-link.active {
-            color: var(--accent-primary);
-            font-weight: 600;
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 2px;
-        }
-        
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: transparent;
-            border-radius: 2px;
-            transition: background 0.3s ease;
-        }
-        
-        .nav-link:hover::before {
-            background: var(--accent-primary);
-            opacity: 0.3;
-        }
-        
-        .text-gradient {
-            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        
-        .theme-toggle {
-            width: 48px;
-            height: 24px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .theme-toggle::before {
-            content: '';
-            position: absolute;
-            top: 2px;
-            left: 2px;
-            width: 18px;
-            height: 18px;
-            background: var(--accent-primary);
-            border-radius: 50%;
-            transition: transform 0.3s ease;
-        }
-        
-        .dark .theme-toggle::before {
-            transform: translateX(24px);
-        }
-        
-        .theme-toggle-icon {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            transition: opacity 0.3s ease;
-        }
-        
-        .sun-icon { left: 5px; opacity: 1; }
-        .moon-icon { right: 5px; opacity: 0.3; }
-        
-        .dark .sun-icon { opacity: 0.3; }
-        .dark .moon-icon { opacity: 1; }
-        
-        .tag {
-            background: rgba(13, 148, 136, 0.1);
-            color: var(--accent-primary);
-            border: 1px solid rgba(13, 148, 136, 0.3);
-        }
-        
-        .dark .tag {
-            background: rgba(45, 212, 191, 0.1);
-            color: #2DD4BF;
-            border: 1px solid rgba(45, 212, 191, 0.3);
-        }
-        
-        .tag-gold {
-            background: rgba(244, 63, 94, 0.1);
-            color: var(--accent-secondary);
-            border: 1px solid rgba(244, 63, 94, 0.3);
-        }
-        
-        .dark .tag-gold {
-            background: rgba(251, 113, 133, 0.15);
-            color: #FB7185;
-            border: 1px solid rgba(251, 113, 133, 0.3);
-        }
-        
-        .status-badge {
-            background: rgba(13, 148, 136, 0.1);
-            color: var(--accent-primary);
-        }
-        
-        .dark .status-badge {
-            background: rgba(45, 212, 191, 0.1);
-            color: #2DD4BF;
-        }
-        
-        .status-gold {
-            background: rgba(244, 63, 94, 0.15);
-            color: var(--accent-secondary);
-        }
-        
-        .dark .status-gold {
-            background: rgba(251, 113, 133, 0.15);
-            color: #FB7185;
-        }
-        
-        .skill-icon {
-            color: var(--accent-primary);
-        }
-        
-        .skill-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-        }
-        
-        .skill-card:hover {
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 10px var(--glow-color);
-        }
-        
-        .skill-category {
-            position: relative;
-        }
-        
-        .skill-item {
-            background: var(--bg-card);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid var(--border-color);
-            border-radius: 16px;
-            padding: 1.5rem;
-            text-align: center;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-        
-        .skill-item:hover {
-            border-color: var(--accent-primary);
-            box-shadow: 0 0 15px var(--glow-color);
-            transform: translateY(-4px);
-        }
-        
-        .skill-item:hover::before {
-            opacity: 1;
-        }
-        
-        .skill-icon-wrapper {
-            width: 56px;
-            height: 56px;
-            margin: 0 auto 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(244, 63, 94, 0.1) 100%);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-        }
-        
-        .dark .skill-icon-wrapper {
-            background: linear-gradient(135deg, rgba(45, 212, 191, 0.1) 0%, rgba(251, 113, 133, 0.1) 100%);
-        }
-        
-        .skill-item:hover .skill-icon-wrapper {
-            background: linear-gradient(135deg, rgba(13, 148, 136, 0.2) 0%, rgba(244, 63, 94, 0.2) 100%);
-            transform: scale(1.1);
-        }
-        
-        .dark .skill-item:hover .skill-icon-wrapper {
-            background: linear-gradient(135deg, rgba(45, 212, 191, 0.2) 0%, rgba(251, 113, 133, 0.2) 100%);
-        }
-        
-        .skill-label {
-            display: block;
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-bottom: 0.75rem;
-        }
-        
-        .skill-bar {
-            height: 4px;
-            background: var(--border-color);
-            border-radius: 2px;
-            overflow: hidden;
-        }
-        
-        .skill-progress {
-            height: 100%;
-            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
-            border-radius: 2px;
-            transition: width 1s ease-out;
-        }
-        
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
-        }
-        
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .typing-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 1.2em;
-            background: var(--accent-primary);
-            margin-left: 2px;
-            animation: blink 1s infinite;
-            vertical-align: text-bottom;
-        }
-        
-        @keyframes blink {
-            0%, 50% { opacity: 1; }
-            51%, 100% { opacity: 0; }
-        }
-        
-        .pulse-badge {
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(13, 148, 136, 0); }
-        }
-        
-        .dark .pulse-badge {
-            animation: pulse-dark 2s infinite;
-        }
-        
-        @keyframes pulse-dark {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(45, 212, 191, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(45, 212, 191, 0); }
-        }
-        
-        .terminal {
-            background: rgba(9, 9, 11, 0.6);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 16px;
-            overflow: hidden;
-            font-family: 'JetBrains Mono', monospace;
-            box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5);
-            transform: perspective(1000px) rotateX(2deg);
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-        }
-        
-        .terminal:hover {
-            transform: perspective(1000px) rotateX(0deg) translateY(-5px);
-            box-shadow: 0 30px 60px -12px var(--glow-color);
-            border-color: rgba(139, 92, 246, 0.3);
-        }
-        
-        .terminal-header {
-            background: var(--bg-secondary);
-            padding: 12px 16px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            border-bottom: 1px solid var(--border-color);
-        }
-        
-        .terminal-dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-        
-        .terminal-body {
-            padding: 16px;
-            font-size: 14px;
-            line-height: 1.6;
-        }
-        
-        .terminal-line {
-            margin-bottom: 8px;
-        }
-        
-        .terminal-prompt {
-            color: var(--accent-primary);
-        }
-        
-        .terminal-command {
-            color: var(--text-primary);
-        }
-        
-        .terminal-output {
-            color: var(--text-secondary);
-            padding-left: 0;
-        }
-        
-        .back-to-top {
-            position: fixed;
-            bottom: 24px;
-            right: 24px;
-            width: 48px;
-            height: 48px;
-            background: var(--accent-primary);
-            color: var(--bg-primary);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 50;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-        }
-        
-        .mobile-menu {
-            position: fixed;
-            top: 0;
-            right: -100%;
-            width: 280px;
-            height: 100vh;
-            background: var(--bg-secondary);
-            border-left: 1px solid var(--border-color);
-            z-index: 100;
-            transition: right 0.3s ease;
-            padding: 80px 24px 24px;
-        }
-        
-        .mobile-menu.open {
-            right: 0;
-        }
-        
-        .mobile-overlay {
-            position: fixed;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            z-index: 90;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-        }
-        
-        .mobile-overlay.open {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 5px;
-            cursor: pointer;
-            padding: 8px;
-        }
-        
-        .hamburger span {
-            width: 24px;
-            height: 2px;
-            background: var(--text-primary);
-            transition: all 0.3s ease;
-        }
-        
-        .hamburger.open span:nth-child(1) {
-            transform: rotate(45deg) translate(5px, 5px);
-        }
-        
-        .hamburger.open span:nth-child(2) {
-            opacity: 0;
-        }
-        
-        .hamburger.open span:nth-child(3) {
-            transform: rotate(-45deg) translate(5px, -5px);
-        }
-        
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-        }
-        
-        .focus-visible:focus {
-            outline: 2px solid var(--accent-primary);
-            outline-offset: 2px;
-        }
-        
-        a:focus-visible,
-        button:focus-visible {
-            outline: 2px solid var(--accent-primary);
-            outline-offset: 2px;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body class="min-h-screen transition-colors duration-300">
     <a href="#main-content" class="skip-link">Skip to main content</a>
@@ -687,12 +116,12 @@
                 <div class="flex items-center justify-center gap-3 mb-6">
                     <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium pulse-badge" style="background: rgba(13, 148, 136, 0.15); color: var(--accent-primary);">
                         <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        Open to Work
+                        Ready to scale systems
                     </span>
                 </div>
-                <span class="text-gradient text-sm font-semibold tracking-[4px] uppercase">Full Stack Developer</span>
-                <h1 id="hero-title" class="text-5xl md:text-7xl font-extrabold mt-4 mb-6 tracking-tight text-primary">VENKATA <span class="text-gradient">NARAYANA</span></h1>
-                <p class="text-accent-secondary text-lg font-light tracking-wide mb-8">React | Node.js | Express | Zoho Catalyst</p>
+                <span class="text-accent text-sm font-semibold tracking-[4px] uppercase">Forward Deployed Engineer</span>
+                <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mt-4 mb-6 tracking-tight text-primary">VENKATA NARAYANA</h1>
+                <p class="text-accent-secondary text-lg font-light tracking-wide mb-8">GenAI | MERN Stack | Catalyst cloud | DevOps</p>
                 
                 <div class="terminal max-w-md mx-auto mt-8 fade-in">
                     <div class="terminal-header">
@@ -724,11 +153,19 @@
                     <div class="md:col-span-3">
                         <h2 id="about-title" class="text-3xl md:text-4xl font-semibold mb-4 text-primary">About Me</h2>
                         <div class="w-16 h-1 gradient-accent mb-8 rounded"></div>
-                        <p class="text-secondary font-light leading-relaxed mb-6">
-                            I am a passionate and driven <span class="text-accent font-normal">Full Stack Developer</span> currently working as a <span class="text-accent-secondary font-normal">Forward Deployed Engineer</span> at <span class="text-accent font-normal">Tiny Magiq</span>. I have a strong foundation in modern web technologies including <span class="text-accent font-normal">React.js</span>, <span class="text-accent font-normal">Node.js</span>, and <span class="text-accent font-normal">Express</span>.
+                        <p class="text-secondary font-light leading-relaxed mb-6 text-lg">
+                            I am a <span class="text-accent-secondary font-semibold">Forward Deployed Engineer</span> at <span class="font-medium text-primary">Tiny Magiq Innovations</span>, where I turn complex, real-world problems into scalable, high-impact software for teams building with GenAI and modern web technologies. My core expertise lies in the <span class="text-accent font-medium">MERN stack</span> and serverless architectures (<span class="text-accent font-medium">Catalyst Cloud</span>), with a strong focus on shipping systems that are reliable on day one and ready to grow with the product on day one hundred.
                         </p>
-                        <p class="text-secondary font-light leading-relaxed">
-                            I completed an intensive 3-month incubation training at Zoho Corporation, where I honed my skills in building RESTful APIs, integrating CRM solutions, and implementing secure authentication using Zoho Catalyst. With hands-on internship experience at Eagle Tech IT Solutions, I am highly motivated to build scalable, impactful applications.
+                   <p class="text-lg leading-relaxed text-secondary font-light mb-6">
+  My foundation is built on the <span class="font-medium text-primary">MERN stack</span>, 
+  with a specialized focus on <span class="italic text-primary">Serverless Architectures</span> 
+  via Catalyst Cloud. I prioritize 
+  clean code and scalability. My time at <span class="font-medium text-primary">Zoho Corporation</span> 
+  taught me to design APIs and systems that aren't just functional—they are built for 
+  real-world demand.
+</p>       
+                        <p class="text-secondary font-light leading-relaxed text-lg">
+                            Currently, I am focused on scaling <span class="text-accent font-medium"></span> applications in production, deepening my <span class="text-accent-secondary font-medium">DevOps</span> toolkit for smoother, observable deployments, and crafting "magical" user experiences that hide complexity behind clear, delightful interactions.
                         </p>
                     </div>
                 </div>
@@ -742,33 +179,33 @@
                 
                 <div class="grid md:grid-cols-3 gap-6">
                     <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300">
-                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4 text-accent">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-primary mb-2">Building</h3>
-                        <p class="text-secondary text-sm font-light">Full-stack web applications with React, Node.js, and Zoho Catalyst. Focused on CRUD operations and REST API development.</p>
+                        <h3 class="text-lg font-semibold text-primary mb-2">Engineering</h3>
+                        <p class="text-secondary text-sm font-light leading-relaxed">Architecting scalable, client-facing applications as a Forward Deployed Engineer. Bridging complex backend system logic with intuitive, high-performance frontends.</p>
                     </article>
                     
                     <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300">
-                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+                        <div class="w-12 h-12 bg-accent-secondary/10 rounded-lg flex items-center justify-center mb-4 text-accent-secondary">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
                             </svg>
                         </div>
-                        <h3 class="text-lg font-semibold text-primary mb-2">Learning</h3>
-                        <p class="text-secondary text-sm font-light">Exploring the world of music by learning to play musical instruments and developing a creative outlet beyond coding.</p>
+                        <h3 class="text-lg font-semibold text-primary mb-2">Developing</h3>
+                        <p class="text-secondary text-sm font-light leading-relaxed">Building end-to-end Full Stack platforms using Next.js, React, Node.js, and Zoho Catalyst. Focused on real-world impact through high-quality community and enterprise apps.</p>
                     </article>
                     
                     <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300">
-                        <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mb-4">
-                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 text-blue-500">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold text-primary mb-2">Exploring</h3>
-                        <p class="text-secondary text-sm font-light">Docker, Kubernetes, Observability tools, and cloud-native development practices.</p>
+                        <p class="text-secondary text-sm font-light leading-relaxed">Expanding expertise in Cloud Infrastructure, Docker, Machine Learning (MobileViT), and modern DevOps practices to deliver robust, intelligent solutions.</p>
                     </article>
                 </div>
             </div>
@@ -781,11 +218,11 @@
                 
                 <div class="max-w-4xl mx-auto">
                     <div class="relative">
-                        <div class="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent-secondary via-accent to-accent/30"></div>
+                        <div class="absolute left-8 top-0 bottom-0 w-[3px] rounded-full" style="background: linear-gradient(to bottom, var(--accent-secondary), var(--accent-primary), transparent);"></div>
                         
                         <div class="space-y-10">
                             <article class="relative pl-16">
-                                <div class="absolute left-0 top-0 w-16 h-16 bg-gradient-to-br from-accent-secondary to-accent rounded-2xl flex items-center justify-center shadow-xl shadow-accent-secondary/20">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl shadow-accent-secondary/20 gradient-accent">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                     </svg>
@@ -809,7 +246,7 @@
                             </article>
 
                             <article class="relative pl-16">
-                                <div class="absolute left-0 top-0 w-16 h-16 bg-gradient-to-br from-accent to-accent/70 rounded-2xl flex items-center justify-center shadow-xl shadow-accent/20">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl shadow-accent/20 gradient-accent" style="opacity: 0.9;">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
                                     </svg>
@@ -833,7 +270,7 @@
                             </article>
 
                             <article class="relative pl-16">
-                                <div class="absolute left-0 top-0 w-16 h-16 bg-gradient-to-br from-accent/80 to-accent/50 rounded-2xl flex items-center justify-center shadow-xl shadow-accent/10">
+                                <div class="absolute left-0 top-0 w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl shadow-accent/10 gradient-accent" style="opacity: 0.75;">
                                     <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                                     </svg>
@@ -863,53 +300,88 @@
 
         <section id="education" class="py-24 px-6 bg-primary fade-in" aria-labelledby="education-title">
             <div class="max-w-6xl mx-auto">
-                <h2 id="education-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Education</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-12 rounded"></div>
+                <h2 id="education-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Education Journey</h2>
+                <div class="w-16 h-1 gradient-accent mx-auto mb-16 rounded section-divider"></div>
                 
-                <div class="max-w-4xl mx-auto">
-                    <div class="relative">
-                        <div class="absolute left-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-accent via-accent/50 to-transparent"></div>
+                <div class="relative max-w-5xl mx-auto py-8">
+                    <!-- Central Timeline Line (Desktop) -->
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.3)]" style="background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);"></div>
+                    <!-- Left Timeline Line (Mobile) -->
+                    <div class="md:hidden absolute left-[30px] top-0 bottom-0 w-1 rounded-full" style="background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);"></div>
+                    
+                    <div class="space-y-16">
+                        <!-- Timeline Item 1 (Left on desktop) -->
+                        <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item">
+                            <!-- Timeline Dot -->
+                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(37,99,235,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-primary);"></div>
+                            
+                            <!-- Left Content -->
+                            <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pr-12 md:text-right">
+                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent">
+                                    <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent/10 text-accent border border-accent/20">2021 - 2025</span>
+                                    <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">B.Tech - Information Technology</h3>
+                                    <p class="text-accent text-sm font-semibold mb-4">Meenakshi College of Engineering, Chennai</p>
+                                    <p class="text-secondary text-sm leading-relaxed">Graduated with a CGPA of 7.9. Specialized in software engineering, modern web technologies, and database architecture.</p>
+                                </article>
+                            </div>
+                            <!-- Empty Right Space -->
+                            <div class="hidden md:block w-5/12"></div>
+                        </div>
+
+                        <!-- Timeline Item 2 (Right on desktop) -->
+                        <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-100">
+                            <!-- Timeline Dot -->
+                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(79,70,229,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
+                            
+                            <!-- Empty Left Space -->
+                            <div class="hidden md:block w-5/12"></div>
+                            
+                            <!-- Right Content -->
+                            <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pl-12 text-left">
+                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent-secondary">
+                                    <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">2021</span>
+                                    <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">Higher Secondary (12th)</h3>
+                                    <p class="text-accent-secondary text-sm font-semibold mb-4">Good Shepherd Matriculation Hr. Sec. School</p>
+                                    <p class="text-secondary text-sm leading-relaxed">Completed with 85% aggregate. Intensive focus on Mathematics and Computer Science.</p>
+                                </article>
+                            </div>
+                        </div>
                         
-                        <div class="space-y-8">
-                            <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300 relative ml-12">
-                                <div class="absolute -left-12 top-6 w-6 h-6 bg-accent rounded-full border-4 border-[var(--bg-primary)] shadow-lg"></div>
-                                <div class="flex items-center gap-3 mb-2">
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent/20 text-accent">2021 - 2025</span>
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent-secondary/20 text-accent-secondary">CGPA: 7.9</span>
-                                </div>
-                                <h3 class="text-xl font-bold text-primary mb-1">B.Tech - Information Technology</h3>
-                                <p class="text-accent text-sm font-medium">Meenakshi College of Engineering, Chennai</p>
-                            </article>
+                        <!-- Timeline Item 3 (Left on desktop) -->
+                        <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-200">
+                            <!-- Timeline Dot -->
+                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(37,99,235,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-primary);"></div>
                             
-                            <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300 relative ml-12">
-                                <div class="absolute -left-12 top-6 w-6 h-6 bg-accent/70 rounded-full border-4 border-[var(--bg-primary)] shadow-lg"></div>
-                                <div class="flex items-center gap-3 mb-2">
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent/20 text-accent">2021</span>
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent-secondary/20 text-accent-secondary">85%</span>
-                                </div>
-                                <h3 class="text-lg font-semibold text-primary mb-1">Higher Secondary (12th)</h3>
-                                <p class="text-accent text-sm font-medium">Good Shepherd Matriculation Hr. Sec. School</p>
-                            </article>
+                            <!-- Left Content -->
+                            <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pr-12 md:text-right">
+                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent">
+                                    <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent/10 text-accent border border-accent/20">2020</span>
+                                    <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Higher Secondary (11th)</h3>
+                                    <p class="text-accent text-sm font-semibold mb-4">Good Shepherd Matriculation Hr. Sec. School</p>
+                                    <p class="text-secondary text-sm leading-relaxed">Completed with 75% aggregate.</p>
+                                </article>
+                            </div>
+                            <!-- Empty Right Space -->
+                            <div class="hidden md:block w-5/12"></div>
+                        </div>
+
+                        <!-- Timeline Item 4 (Right on desktop) -->
+                        <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-300">
+                            <!-- Timeline Dot -->
+                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(79,70,229,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
                             
-                            <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300 relative ml-12">
-                                <div class="absolute -left-12 top-6 w-6 h-6 bg-accent/50 rounded-full border-4 border-[var(--bg-primary)] shadow-lg"></div>
-                                <div class="flex items-center gap-3 mb-2">
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent/20 text-accent">2020</span>
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent-secondary/20 text-accent-secondary">75%</span>
-                                </div>
-                                <h3 class="text-lg font-semibold text-primary mb-1">Higher Secondary (11th)</h3>
-                                <p class="text-accent text-sm font-medium">Good Shepherd Matriculation Hr. Sec. School</p>
-                            </article>
+                            <!-- Empty Left Space -->
+                            <div class="hidden md:block w-5/12"></div>
                             
-                            <article class="bg-card border border-theme rounded-xl p-6 card-hover transition-all duration-300 relative ml-12">
-                                <div class="absolute -left-12 top-6 w-6 h-6 bg-accent/30 rounded-full border-4 border-[var(--bg-primary)] shadow-lg"></div>
-                                <div class="flex items-center gap-3 mb-2">
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent/20 text-accent">2019</span>
-                                    <span class="px-3 py-1 text-xs font-semibold rounded-full bg-accent-secondary/20 text-accent-secondary">82%</span>
-                                </div>
-                                <h3 class="text-lg font-semibold text-primary mb-1">Secondary School (10th)</h3>
-                                <p class="text-accent text-sm font-medium">Good Shepherd Matriculation Hr. Sec. School</p>
-                            </article>
+                            <!-- Right Content -->
+                            <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pl-12 text-left">
+                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent-secondary">
+                                    <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">2019</span>
+                                    <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">Secondary School (10th)</h3>
+                                    <p class="text-accent-secondary text-sm font-semibold mb-4">Good Shepherd Matriculation Hr. Sec. School</p>
+                                    <p class="text-secondary text-sm leading-relaxed">Completed with 82% aggregate. Built a strong foundation in science and technology.</p>
+                                </article>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -951,104 +423,134 @@
                 <div class="w-16 h-1 gradient-accent mx-auto mb-12 rounded"></div>
                 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group">
+                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item">
                         <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 text-xs font-bold rounded-full bg-accent text-white shadow-lg">Live</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 shadow-sm">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                    </span>
+                                    Live
+                                </span>
                                 <span class="text-xs text-muted">Featured</span>
                             </div>
                             <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Harmonix Musicals</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Dynamic web application for a music academy with administrative dashboard and real-time data management.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">React</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Zoho Catalyst</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Serverless</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">React</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Zoho Catalyst</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Serverless</span>
                             </div>
-                            <a href="https://harmonix-musicals.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
+                            <a href="https://harmonix-musicals.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all floating">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group">
+                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-100">
                         <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 text-xs font-bold rounded-full bg-accent-secondary text-white shadow-lg">Community</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 shadow-sm">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                    </span>
+                                    Live
+                                </span>
                                 <span class="text-xs text-muted">Social Impact</span>
                             </div>
                             <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">Valasaravakkam Samithi</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Web platform for Sri Sathya Sai Seva Organization to manage community outreach and social service initiatives.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Web Development</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Community Service</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Web Development</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Community Service</span>
                             </div>
-                            <a href="https://valasaravakkam-samithi.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all">
+                            <a href="https://valasaravakkam-samithi.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all floating-delayed">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-200">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 text-xs font-bold rounded-full bg-purple-500 text-white shadow-lg">ML Project</span>
-                                <span class="text-xs text-accent-secondary font-semibold">F1: 0.96</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 shadow-sm">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+                                    </span>
+                                    ML Project
+                                </span>
+                                <span class="text-xs text-accent font-semibold">F1: 0.96</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-purple-500 transition-colors">Knee Osteoarthritis Detection</h3>
+                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Knee Osteoarthritis Detection</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Mobile-ViT-based deep learning model to classify knee osteoarthritis from X-ray images.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-500 border border-purple-500/20">Python</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-500 border border-purple-500/20">Deep Learning</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-purple-500/10 text-purple-500 border border-purple-500/20">MobileViT</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Python</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Deep Learning</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">MobileViT</span>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-2 text-purple-500 text-sm font-semibold group-hover:gap-3 transition-all">
+                            <a href="#" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all floating">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 text-xs font-bold rounded-full bg-blue-500 text-white shadow-lg">Full Stack</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 shadow-sm">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                    </span>
+                                    In Development
+                                </span>
                                 <span class="text-xs text-muted">PWA Ready</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-blue-500 transition-colors">Task Tracker & Diary</h3>
+                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Task Tracker & Diary</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Full-stack web application for daily task tracking and personal diary management with analytics.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">Next.js</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">Supabase</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 border border-blue-500/20">Tailwind</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Next.js</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Supabase</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Tailwind</span>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-2 text-blue-500 text-sm font-semibold group-hover:gap-3 transition-all">
+                            <a href="#" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all floating-delayed">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group">
-                        <div class="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-400">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="px-3 py-1 text-xs font-bold rounded-full bg-amber-500 text-white shadow-lg">In Development</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 shadow-sm">
+                                    <span class="relative flex h-2 w-2">
+                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                                    </span>
+                                    In Development
+                                </span>
                                 <span class="text-xs text-muted">Coming Soon</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-amber-500 transition-colors">A2ZConverts</h3>
+                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">A2ZConverts</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Full-stack file conversion platform to convert any file format to user's preferred format.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">Node.js</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">Express</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-amber-500/10 text-amber-500 border border-amber-500/20">React</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Node.js</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Express</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">React</span>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-2 text-amber-500 text-sm font-semibold group-hover:gap-3 transition-all">
+                            <a href="#" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all floating">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
@@ -1060,183 +562,82 @@
 
         <section id="skills" class="py-24 px-6 bg-primary fade-in" aria-labelledby="skills-title">
             <div class="max-w-6xl mx-auto">
-                <h2 id="skills-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Skills & Tools</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-6 rounded"></div>
+                <h2 id="skills-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Technical Expertise</h2>
+                <div class="w-16 h-1 gradient-accent mx-auto mb-6 rounded section-divider"></div>
                 <p class="text-secondary text-center font-light max-w-2xl mx-auto mb-16">
-                    Technologies I work with to build scalable, performant applications
+                    Building robust and scalable solutions using modern technologies.
                 </p>
                 
-                <div class="space-y-16">
-                    <div class="skill-category">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-primary">Frontend Development</h3>
-                                <p class="text-muted text-sm">Building responsive, interactive user interfaces</p>
-                            </div>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Frontend Development Pod -->
+                    <div class="skill-pod stagger-item">
+                        <div class="skill-icon-wrapper w-16 h-16 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center mb-6 border border-accent/20">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                            </svg>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <circle cx="64" cy="64" r="11.4" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <circle cx="64" cy="64" r="22.8" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <circle cx="64" cy="64" r="34.2" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <ellipse cx="64" cy="64" rx="45.6" ry="18" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <ellipse cx="64" cy="64" rx="45.6" ry="18" fill="none" stroke="currentColor" stroke-width="5" transform="rotate(60 64 64)"/>
-                                        <ellipse cx="64" cy="64" rx="45.6" ry="18" fill="none" stroke="currentColor" stroke-width="5" transform="rotate(120 64 64)"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">React.js</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <rect x="20" y="20" width="88" height="88" rx="8" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <path d="M40 64 L55 79 L88 46" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">HTML5/CSS3</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <rect x="20" y="20" width="88" height="88" rx="8" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <text x="64" y="75" text-anchor="middle" fill="currentColor" font-size="30" font-weight="bold">JS</text>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">JavaScript</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <rect x="20" y="20" width="88" height="88" rx="8" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <path d="M40 64 L55 79 L88 46" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">Tailwind CSS</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                            </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Frontend</h3>
+                        <p class="text-muted text-sm mb-6">Crafting intuitive and responsive user experiences.</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-react-original colored text-lg"></i> React.js</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-nextjs-original text-primary text-lg transition-colors group-hover:text-accent"></i> Next.js</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-javascript-plain colored text-lg"></i> JavaScript</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-html5-plain colored text-lg"></i> HTML5</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-css3-plain colored text-lg"></i> CSS3</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-tailwindcss-plain colored text-lg"></i> Tailwind CSS</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-materialui-plain colored text-lg"></i> MUI</span>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-primary">Backend & DevOps</h3>
-                                <p class="text-muted text-sm">Server-side development and cloud infrastructure</p>
-                            </div>
+                    <!-- Backend & Cloud Pod -->
+                    <div class="skill-pod stagger-item delay-100">
+                        <div class="skill-icon-wrapper w-16 h-16 mx-auto bg-accent-secondary/10 rounded-2xl flex items-center justify-center mb-6 border border-accent-secondary/20">
+                            <svg class="w-8 h-8 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                            </svg>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <path fill="currentColor" d="M112.771 30.334L68.669 1.643c-2.881-1.924-6.632-1.924-9.507 0L14.875 30.334c-2.881 1.924-4.625 5.213-4.625 8.787v57.542c0 3.574 1.744 6.863 4.625 8.787l44.287 28.691c2.881 1.924 6.632 1.924 9.507 0l44.102-28.691c2.881-1.924 4.625-5.213 4.625-8.787V39.121c0-3.574-1.744-6.863-4.625-8.787z"/>
-                                        <text x="64" y="85" text-anchor="middle" fill="var(--bg-primary)" font-size="40" font-weight="bold">JS</text>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">Node.js</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <rect x="20" y="20" width="88" height="88" rx="8" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <text x="64" y="75" text-anchor="middle" fill="currentColor" font-size="24" font-weight="bold">EX</text>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">Express.js</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <path fill="currentColor" d="M64 16L16 40v48l48 24 48-24V40L64 16zm0 8l40 20v40l-40 20-40-20V44l40-20z"/>
-                                        <circle cx="64" cy="64" r="16" fill="none" stroke="currentColor" stroke-width="4"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">Zoho Catalyst</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <path fill="none" stroke="currentColor" stroke-width="5" d="M64 20 L64 108 M20 64 L108 64"/>
-                                        <circle cx="64" cy="64" r="30" fill="none" stroke="currentColor" stroke-width="5"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">REST APIs</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                            </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Backend & Cloud</h3>
+                        <p class="text-muted text-sm mb-6">Designing robust architecture and secure APIs.</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-nodejs-plain colored text-lg"></i> Node.js</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-express-original text-primary text-lg transition-colors group-hover:text-accent"></i> Express.js</span>
+                            <span class="skill-tag flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+                                Zoho Catalyst
+                            </span>
+                            <span class="skill-tag flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+                                REST APIs
+                            </span>
+                            <span class="skill-tag flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+                                Serverless
+                            </span>
                         </div>
                     </div>
 
-                    <div class="skill-category">
-                        <div class="flex items-center gap-4 mb-8">
-                            <div class="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                                <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold text-primary">Database & Tools</h3>
-                                <p class="text-muted text-sm">Data management and development tools</p>
-                            </div>
+                    <!-- Database & Tools Pod -->
+                    <div class="skill-pod stagger-item delay-200">
+                        <div class="skill-icon-wrapper w-16 h-16 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center mb-6 border border-accent/20">
+                            <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
+                            </svg>
                         </div>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <ellipse cx="64" cy="35" rx="50" ry="20" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <path d="M14 35 L14 93 C14 104 37 113 64 113 C91 113 114 104 114 93 L114 35" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <ellipse cx="64" cy="65" rx="50" ry="20" fill="none" stroke="currentColor" stroke-width="5"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">MySQL</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 75%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <circle cx="64" cy="64" r="40" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <path d="M64 30 L64 50 M64 78 L64 98" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">Git/GitHub</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 85%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <rect x="25" y="20" width="78" height="88" rx="8" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <path d="M45 45 L83 45 M45 60 L83 60 M45 75 L70 75" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">VS Code</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 90%"></div></div>
-                            </div>
-                            <div class="skill-item group">
-                                <div class="skill-icon-wrapper">
-                                    <svg class="w-8 h-8 skill-icon" viewBox="0 0 128 128" aria-hidden="true">
-                                        <circle cx="64" cy="64" r="40" fill="none" stroke="currentColor" stroke-width="5"/>
-                                        <path d="M44 64 L84 64 M64 44 L64 84" stroke="currentColor" stroke-width="5" stroke-linecap="round"/>
-                                    </svg>
-                                </div>
-                                <span class="skill-label">Postman</span>
-                                <div class="skill-bar"><div class="skill-progress" style="width: 80%"></div></div>
-                            </div>
+                        <h3 class="text-xl font-bold text-primary mb-2">Database & Tools</h3>
+                        <p class="text-muted text-sm mb-6">Managing data efficiently and deploying effectively.</p>
+                        <div class="flex flex-wrap gap-2 justify-center">
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-mysql-plain colored text-lg"></i> MySQL</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-mongodb-plain colored text-lg"></i> MongoDB</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-git-plain colored text-lg"></i> Git</span>
+                            <span class="skill-tag flex items-center gap-1.5"><i class="devicon-github-original text-primary text-lg transition-colors group-hover:text-accent"></i> GitHub</span>
+                            <span class="skill-tag flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-primary" fill="currentColor" viewBox="0 0 24 24"><path d="M24 22.525H0l12-21.05 12 21.05z"/></svg> 
+                                Vercel
+                            </span>
+                            <span class="skill-tag flex items-center gap-1.5">
+                                <svg class="w-4 h-4 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+                                Postman
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -1352,7 +753,7 @@
                             </li>
                             <li class="text-secondary font-light flex items-center gap-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
-                                Tech Gadgets
+                                Learning Musical Instruments
                             </li>
                             <li class="text-secondary font-light flex items-center gap-2">
                                 <span class="w-1.5 h-1.5 rounded-full bg-accent-secondary"></span>
@@ -1400,14 +801,14 @@
                 </p>
                 
                 <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                    <a href="mailto:venkatnarayana727@gmail.com" class="bg-card border border-theme rounded-xl p-6 text-center card-hover transition-all duration-300 group" aria-label="Send email">
+                    <a href="mailto:venkatnarayana727@gmail.com" class="bg-card border border-theme flex flex-col items-center justify-center rounded-xl p-6 text-center card-hover transition-all duration-300 group overflow-hidden" aria-label="Send email">
                         <div class="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-4 group-hover:bg-accent/20 transition-colors">
                             <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                         </div>
                         <h3 class="text-lg font-semibold mb-1 text-primary">Email</h3>
-                        <p class="text-secondary text-sm">venkatnarayana727@gmail.com</p>
+                        <p class="text-secondary text-sm break-all px-2 w-full">venkatnarayana727@gmail.com</p>
                     </a>
 
                     <a href="tel:7010919624" class="bg-card border border-theme rounded-xl p-6 text-center card-hover transition-all duration-300 group" aria-label="Phone">
@@ -1442,7 +843,7 @@
                 </div>
                 
                 <div class="text-center">
-                    <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-accent text-white px-8 py-4 rounded-lg font-medium hover:opacity-90 transition-opacity" aria-label="Download resume PDF">
+                    <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all duration-300" aria-label="Download resume PDF">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
@@ -1470,143 +871,6 @@
         </svg>
     </button>
 
-    <script>
-        function copyEmail() {
-            const email = 'venkatnarayana727@gmail.com';
-            navigator.clipboard.writeText(email).then(() => {
-                const toast = document.getElementById('toast');
-                toast.style.opacity = '1';
-                toast.style.transform = 'translateX(-50%) translateY(0)';
-                setTimeout(() => {
-                    toast.style.opacity = '0';
-                    toast.style.transform = 'translateX(-50%) translateY(10px)';
-                }, 2000);
-            });
-        }
-
-        function toggleTheme() {
-            document.documentElement.classList.toggle('dark');
-            localStorage.setItem('theme', document.documentElement.classList.contains('dark') ? 'dark' : 'light');
-        }
-
-        function toggleMobileMenu() {
-            const menu = document.querySelector('.mobile-menu');
-            const overlay = document.querySelector('.mobile-overlay');
-            const hamburger = document.querySelector('.hamburger');
-            
-            menu.classList.toggle('open');
-            overlay.classList.toggle('open');
-            hamburger.classList.toggle('open');
-            hamburger.setAttribute('aria-expanded', hamburger.classList.contains('open'));
-        }
-
-        function scrollToTop() {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        (function() {
-            const savedTheme = localStorage.getItem('theme');
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-            
-            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-                document.documentElement.classList.add('dark');
-            }
-        })();
-
-        const sections = document.querySelectorAll('section[id]');
-        const navLinks = document.querySelectorAll('.nav-link');
-
-        function updateActiveNav() {
-            const scrollY = window.scrollY;
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop - 100;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-                
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    navLinks.forEach(link => {
-                        link.classList.remove('active');
-                        if (link.getAttribute('href') === '#' + sectionId) {
-                            link.classList.add('active');
-                        }
-                    });
-                }
-            });
-        }
-
-        const fadeElements = document.querySelectorAll('.fade-in');
-        
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-        
-        const fadeObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
-        
-        fadeElements.forEach(el => fadeObserver.observe(el));
-
-        const backToTop = document.querySelector('.back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 500) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-
-        const commands = [
-            { cmd: 'whoami', output: 'Venkata Narayana G V - Full Stack Developer' },
-            { cmd: 'skills', output: 'React, Node.js, Express, Zoho Catalyst, MySQL' },
-            { cmd: 'contact', output: 'Email: venkatnarayana727@gmail.com' }
-        ];
-        
-        let currentCommand = 0;
-        let currentChar = 0;
-        let isTyping = true;
-        let isPaused = false;
-        
-        const typedCommand = document.getElementById('typed-command');
-        const terminalOutput = document.getElementById('terminal-output');
-        const cursor = document.getElementById('cursor');
-        
-        function typeCommand() {
-            if (currentCommand >= commands.length) {
-                currentCommand = 0;
-            }
-            
-            const { cmd, output } = commands[currentCommand];
-            
-            if (currentChar < cmd.length) {
-                typedCommand.textContent = cmd.substring(0, currentChar + 1);
-                currentChar++;
-                setTimeout(typeCommand, 100);
-            } else {
-                cursor.style.display = 'none';
-                terminalOutput.innerHTML = `<span class="text-accent-secondary">→</span> ${output}`;
-                
-                setTimeout(() => {
-                    typedCommand.textContent = '';
-                    terminalOutput.innerHTML = '';
-                    cursor.style.display = 'inline-block';
-                    currentChar = 0;
-                    currentCommand++;
-                    setTimeout(typeCommand, 500);
-                }, 2000);
-            }
-        }
-        
-        setTimeout(typeCommand, 1000);
-
-        window.addEventListener('scroll', updateActiveNav);
-        window.addEventListener('load', updateActiveNav);
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>

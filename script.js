@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(typeCommand, Math.random() * 50 + 50); // random typing speed
         } else {
             cursor.style.display = 'none';
-            terminalOutput.innerHTML = `<span class="text-accent-primary mr-2">➜</span><span class="text-muted">${output}</span>`;
+            terminalOutput.innerHTML = `<span class="text-accent mr-2">➜</span><span class="text-muted">${output}</span>`;
             
             setTimeout(() => {
                 typedCommand.textContent = '';

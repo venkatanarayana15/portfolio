@@ -18,7 +18,7 @@
     
     /* Professional Accent Palette */
     --accent-primary: #2563EB;   /* Royal Blue */
-    --accent-secondary: #4F46E5; /* Indigo */
+    --accent-secondary: #0891B2; /* Cyan-600 */
     
     --border-color: rgba(15, 23, 42, 0.08);
     --glow-color: rgba(37, 99, 235, 0.15);
@@ -27,7 +27,7 @@
     --card-shadow: 0 10px 30px -10px rgba(15, 23, 42, 0.06);
     --card-shadow-hover: 0 20px 40px -15px rgba(37, 99, 235, 0.15);
     --bg-pattern: radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.05), transparent 40%),
-                  radial-gradient(circle at 85% 30%, rgba(79, 70, 229, 0.05), transparent 40%);
+                  radial-gradient(circle at 85% 30%, rgba(8, 145, 178, 0.05), transparent 40%);
 }
 
 .dark {
@@ -44,7 +44,7 @@
     --text-muted: #94A3B8;       /* Slate-400 */
     
     --accent-primary: #3B82F6;   /* Bright Blue */
-    --accent-secondary: #8B5CF6; /* Violet/Indigo */
+    --accent-secondary: #22D3EE; /* Cyan-400 */
     
     --border-color: rgba(255, 255, 255, 0.08);
     --glow-color: rgba(59, 130, 246, 0.2);
@@ -53,7 +53,7 @@
     --card-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
     --card-shadow-hover: 0 20px 40px -15px var(--glow-color);
     --bg-pattern: radial-gradient(circle at 15% 50%, rgba(37, 99, 235, 0.08), transparent 40%),
-                  radial-gradient(circle at 85% 30%, rgba(139, 92, 246, 0.08), transparent 40%);
+                  radial-gradient(circle at 85% 30%, rgba(34, 211, 238, 0.08), transparent 40%);
 }
 
 * {

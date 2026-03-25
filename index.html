@@ -53,6 +53,10 @@
             darkMode: 'class',
             theme: {
                 extend: {
+                    colors: {
+                        accent: 'var(--accent-primary)',
+                        'accent-secondary': 'var(--accent-secondary)',
+                    },
                     fontFamily: {
                         inter: ['Inter', 'sans-serif'],
                         mono: ['JetBrains Mono', 'monospace'],
@@ -108,9 +112,9 @@
     </div>
 
     <main id="main-content">
-        <section class="min-h-screen flex items-center justify-center relative px-6 pt-20" aria-labelledby="hero-title">
+        <section class="min-h-screen flex items-center justify-center relative px-6 pt-20 overflow-hidden" aria-labelledby="hero-title">
             <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div class="w-[600px] h-[600px] hero-glow"></div>
+                <div class="w-[300px] h-[300px] md:w-[600px] md:h-[600px] hero-glow"></div>
             </div>
             <div class="text-center z-10 max-w-4xl">
                 <div class="flex items-center justify-center gap-3 mb-6">
@@ -119,9 +123,18 @@
                         Ready to scale systems
                     </span>
                 </div>
-                <span class="text-accent text-sm font-semibold tracking-[4px] uppercase">Forward Deployed Engineer</span>
-                <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mt-4 mb-6 tracking-tight text-primary">VENKATA NARAYANA</h1>
-                <p class="text-accent-secondary text-lg font-light tracking-wide mb-8">GenAI | MERN Stack | Catalyst cloud | DevOps</p>
+                <span class="text-accent text-xs md:text-sm font-semibold tracking-[4px] uppercase mb-4 block">Forward Deployed Engineer</span>
+                <h1 id="hero-title" class="text-4xl md:text-7xl font-bold mt-2 mb-6 tracking-tight text-primary leading-[1.1]">
+                    VENKATA <br class="md:hidden"> NARAYANA
+                </h1>
+                <p class="text-accent-secondary text-base md:text-lg font-light tracking-wide mb-10 max-w-2xl mx-auto">
+                    GenAI | MERN Stack | Catalyst cloud | DevOps
+                </p>
+                
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-in">
+                    <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-2xl font-semibold shadow-lg shadow-accent/25 hover:scale-105 active:scale-95 transition-all duration-300">View Projects</a>
+                    <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-card border border-theme text-primary rounded-2xl font-semibold hover:bg-secondary transition-all duration-300">Get in Touch</a>
+                </div>
                 
                 <div class="terminal max-w-md mx-auto mt-8 fade-in">
                     <div class="terminal-header">
@@ -137,6 +150,14 @@
                             <span class="typing-cursor" id="cursor"></span>
                         </div>
                         <div class="terminal-output" id="terminal-output"></div>
+                    </div>
+                </div>
+
+                <!-- Animated Scroll Indicator -->
+                <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60 md:opacity-100">
+                    <span class="text-[10px] uppercase tracking-[3px] text-muted font-medium">Scroll</span>
+                    <div class="w-5 h-8 border-2 border-muted rounded-full relative">
+                        <div class="w-1 h-1 bg-accent rounded-full absolute top-2 left-1/2 -translate-x-1/2 animate-bounce"></div>
                     </div>
                 </div>
             </div>
@@ -229,7 +250,7 @@
                                 </div>
                                 <div class="bg-card border border-theme rounded-2xl p-6 card-hover transition-all duration-300">
                                     <div class="flex flex-wrap items-center gap-3 mb-3">
-                                        <span class="px-3 py-1 text-xs font-bold rounded-full bg-accent-secondary text-white">Current</span>
+                                        <span class="px-3 py-1 text-xs font-bold rounded-full bg-accent text-white">Current</span>
                                         <span class="text-xs text-muted">2024 - Present</span>
                                     </div>
                                     <h3 class="text-xl font-bold text-primary mb-1">Forward Deployed Engineer</h3>
@@ -277,7 +298,7 @@
                                 </div>
                                 <div class="bg-card border border-theme rounded-2xl p-6 card-hover transition-all duration-300">
                                     <div class="flex flex-wrap items-center gap-3 mb-3">
-                                        <span class="px-3 py-1 text-xs font-bold rounded-full bg-accent/80 text-white">Internship</span>
+                                        <span class="px-3 py-1 text-xs font-bold rounded-full bg-accent text-white">Internship</span>
                                         <span class="text-xs text-muted">Jul 2024 - Aug 2024</span>
                                     </div>
                                     <h3 class="text-xl font-bold text-primary mb-1">Web Development Intern</h3>
@@ -331,7 +352,7 @@
                         <!-- Timeline Item 2 (Right on desktop) -->
                         <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-100">
                             <!-- Timeline Dot -->
-                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(79,70,229,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
+                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(8,145,178,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
                             
                             <!-- Empty Left Space -->
                             <div class="hidden md:block w-5/12"></div>
@@ -368,7 +389,7 @@
                         <!-- Timeline Item 4 (Right on desktop) -->
                         <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-300">
                             <!-- Timeline Dot -->
-                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(79,70,229,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
+                            <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(8,145,178,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
                             
                             <!-- Empty Left Space -->
                             <div class="hidden md:block w-5/12"></div>

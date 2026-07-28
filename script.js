@@ -18,6 +18,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.toggle('dark');
         const isDark = document.documentElement.classList.contains('dark');
         localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        const btn = document.querySelector('.theme-toggle-btn');
+        if (btn) {
+            btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            btn.setAttribute('aria-pressed', isDark);
+
+        }
     };
 
     // -----------------------------------------
@@ -145,7 +151,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(typeCommand, Math.random() * 50 + 50); // random typing speed
         } else {
             cursor.style.display = 'none';
-            terminalOutput.innerHTML = `<span class="text-accent mr-2">➜</span><span class="text-muted">${output}</span>`;
+            terminalOutput.innerHTML = `<span class="text-accent mr-2">></span><span class="text-muted">${output}</span>`;
             
             setTimeout(() => {
                 typedCommand.textContent = '';
@@ -162,6 +168,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial Trigger
     updateActiveNav();
+
+    // -----------------------------------------
+    // Resize Handler - Close Mobile Menu on Desktop
+    // -----------------------------------------
+    window.addEventListener('resize', () => {
+        if (window.innerWidth >= 768) {
+            if (menu && menu.classList.contains('open')) {
+                toggleMobileMenu();
+            }
+        }
+    });
+
+    // -----------------------------------------
+    // Escape Key - Close Mobile Menu
+    // -----------------------------------------
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && menu && menu.classList.contains('open')) {
+            toggleMobileMenu();
+        }
+    });
 });
 
 // Immediately invoked theme check to prevent flash of wrong theme
@@ -172,42 +198,80 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.classList.add('dark');
     }
 })();
-document.addEventListener('DOMContentLoaded', () => {
-    const containers = ['focus-scroll-container', 'interests-scroll-container'];
-    
-    containers.forEach(id => {
-        const carousel = document.getElementById(id);
-        if (!carousel) return;
 
-        let isAutoScrolling = true;
-        const scrollInterval = 3000; // Slide every 4 seconds
+// Update theme button aria attributes on initial load
+(function() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const btn = document.querySelector('.theme-toggle-btn');
+    if (btn) {
+        btn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+        btn.setAttribute('aria-pressed', isDark);
+    }
+})();
 
-        function autoSlide() {
-            // Only run on mobile (when the element is a flex container, not a grid)
-            if (window.innerWidth >= 768 || !isAutoScrolling) return;
-
-            const firstChild = carousel.firstElementChild;
-            if (!firstChild) return;
-
-            const cardWidth = firstChild.offsetWidth + 24; // Card + Gap
-            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
-
-            if (carousel.scrollLeft >= maxScroll - 10) {
-                // Reset to beginning if at the end
-                carousel.scrollTo({ left: 0, behavior: 'smooth' });
-            } else {
-                // Move to next card
-                carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
-            }
+// Listen for system theme changes
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (!localStorage.getItem('theme')) {
+        document.documentElement.classList.toggle('dark', e.matches);
+        const btn = document.querySelector('.theme-toggle-btn');
+        if (btn) {
+            btn.setAttribute('aria-label', e.matches ? 'Switch to light mode' : 'Switch to dark mode');
+            btn.setAttribute('aria-pressed', e.matches);
         }
+    }
+});
 
-        // Start interval
-        let slideTimer = setInterval(autoSlide, scrollInterval);
+// -----------------------------------------
+// Carousel Auto-Scroll (focus-scroll-container only)
+// -----------------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('focus-scroll-container');
+    if (!carousel) return;
 
-        // Pause auto-slide when user touches the carousel
-        carousel.addEventListener('touchstart', () => {
-            isAutoScrolling = false;
-            clearInterval(slideTimer);
-        }, { passive: true });
-    });
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    let isAutoScrolling = true;
+    let slideTimer = null;
+    const scrollInterval = 3000; // Slide every 3 seconds
+
+    function autoSlide() {
+        if (window.innerWidth >= 768 || !isAutoScrolling) return;
+
+        const firstChild = carousel.firstElementChild;
+        if (!firstChild) return;
+
+        const cardWidth = firstChild.offsetWidth + 24;
+        const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+        if (maxScroll <= 0) return;
+
+        if (carousel.scrollLeft >= maxScroll - 10) {
+            carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        } else {
+            carousel.scrollBy({ left: cardWidth, behavior: 'smooth' });
+        }
+    }
+
+    function startAutoSlide() {
+        if (slideTimer) clearInterval(slideTimer);
+        slideTimer = setInterval(autoSlide, scrollInterval);
+    }
+
+    function pauseAutoSlide() {
+        isAutoScrolling = false;
+        if (slideTimer) clearInterval(slideTimer);
+    }
+
+    function resumeAutoSlide() {
+        isAutoScrolling = true;
+        startAutoSlide();
+    }
+
+    startAutoSlide();
+
+    carousel.addEventListener('touchstart', pauseAutoSlide, { passive: true });
+    carousel.addEventListener('touchend', resumeAutoSlide, { passive: true });
+    carousel.addEventListener('mouseenter', pauseAutoSlide);
+    carousel.addEventListener('mouseleave', resumeAutoSlide);
 });

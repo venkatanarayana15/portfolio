@@ -40,7 +40,7 @@
     }
     </script>
     
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>V</text></svg>">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='45' fill='%232563EB'/%3E%3Ctext y='.9em' x='50' font-size='90' font-family='Inter,sans-serif' font-weight='700' text-anchor='middle' fill='white'%3EV%3C/text%3E%3C/svg%3E">
     
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -83,7 +83,16 @@
                      <a href="#interests-carousel" class="nav-link text-primary hover:text-accent transition-colors text-sm relative py-2" role="menuitem">Interests</a>
                      <a href="#contact" class="nav-link text-primary hover:text-accent transition-colors text-sm relative py-2" role="menuitem">Contact</a>
                 </div>
-                <button onclick="toggleTheme()" class="theme-toggle-btn" aria-label="Toggle dark mode">
+                <button onclick="toggleTheme()" class="theme-toggle-btn" type="button" aria-label="Switch to light mode" aria-pressed="false">
+                    <div class="track">
+                        <div class="track-bg"></div>
+                        <div class="track-glow"></div>
+                    </div>
+                    <div class="orb">
+                        <div class="orb-core"></div>
+                        <div class="orb-shine"></div>
+                        <div class="orb-ring"></div>
+                    </div>
                     <svg class="icon sun-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
                     </svg>
@@ -100,7 +109,7 @@
         </div>
     </nav>
     
-    <div class="mobile-overlay" onclick="toggleMobileMenu()"></div>
+    <div class="mobile-overlay" onclick="toggleMobileMenu()" role="button" tabindex="0" aria-label="Close navigation menu" onkeydown="if(event.key==='Enter'||event.key===' '){toggleMobileMenu();event.preventDefault()}"></div>
     <div class="mobile-menu" role="dialog" aria-label="Mobile navigation">
         <nav class="flex flex-col gap-4 px-6 w-full max-w-sm mx-auto">
             <a href="#about" class="block w-full py-4 text-center rounded-2xl bg-card border border-theme text-primary font-medium focus:outline-none hover:bg-accent/10 hover:text-accent hover:border-accent active:scale-95 active:bg-accent/20 transition-all duration-200 shadow-sm" onclick="toggleMobileMenu()">About</a>
@@ -229,7 +238,7 @@
             <div class="absolute bottom-1/4 right-0 w-64 h-64 bg-accent-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
             <div class="max-w-6xl mx-auto">
                 <h2 id="experience-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary flex items-center justify-center gap-3">
-                    <svg class="w-8 h-8 text-blue-400" fill="currentColor" stroke="none" viewBox="0 0 24 24">
+                    <svg class="w-8 h-8 text-blue-700" fill="currentColor" stroke="none" viewBox="0 0 24 24">
   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
 </svg>  Experience
                 </h2>

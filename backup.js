@@ -81,12 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // -----------------------------------------
     const observerOptions = {
         threshold: 0.1,
-        rootMargin: '0px 0px -5px 0px'
+        rootMargin: '0px 0px -50px 0px'
     };
     
     // Animate sections and cards on scroll
-    const animatedElements = document.querySelectorAll('.fade-in, .slide-in-left, .slide-in-right, .slide-in-up, .scale-in, .stagger-item, .card-hover');
-
+    const animatedElements = document.querySelectorAll('.fade-in, .skill-card, .project-card, .timeline-item');
+    
     const elementObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {

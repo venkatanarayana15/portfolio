@@ -70,7 +70,7 @@
 <body class="min-h-screen transition-colors duration-300">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/80 backdrop-blur-md border-b border-theme" role="navigation" aria-label="Main navigation">
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-primary/70 backdrop-blur-xl border-b border-theme/50" role="navigation" aria-label="Main navigation">
         <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#" class="text-accent font-semibold text-lg tracking-wide" aria-label="Home">&lt;Venkata Narayana /&gt;</a>
             <div class="flex items-center gap-6">
@@ -123,16 +123,17 @@
     </div>
 
     <main id="main-content">
-        <section class="min-h-screen flex items-center justify-center relative px-6 pt-20 overflow-hidden" aria-labelledby="hero-title">
-            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div class="w-[300px] h-[300px] md:w-[600px] md:h-[600px] hero-glow"></div>
+<section id="hero" class="min-h-screen flex items-center justify-center relative px-6 pt-20 overflow-hidden" aria-labelledby="hero-title">
+            <div class="absolute inset-0 pointer-events-none overflow-hidden">
+                <div class="absolute top-1/4 left-1/4 w-[300px] h-[300px] md:w-[600px] md:h-[600px] bg-accent/5 rounded-full blur-3xl"></div>
+                <div class="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-accent-secondary/5 rounded-full blur-3xl"></div>
+                <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent-tertiary/3 rounded-full blur-3xl"></div>
             </div>
+            <div class="absolute inset-0 pointer-events-none" style="background-image: radial-gradient(circle at 1px 1px, var(--border-color) 1px, transparent 0); background-size: 40px 40px; opacity: 0.5;"></div>
             <div class="text-center z-10 max-w-4xl">
-                <div class="flex items-center justify-center gap-3 mb-6">
-                    <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium pulse-badge" style="background: rgba(13, 148, 136, 0.15); color: var(--accent-primary);">
-                        <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                        Ready to scale systems
-                    </span>
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium mb-6 border border-accent/20 bg-accent/5 text-accent">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    Ready to scale systems
                 </div>
                 <span class="text-accent text-xs md:text-sm font-semibold tracking-[4px] uppercase mb-4 block">Forward Deployed Engineer</span>
                 <h1 id="hero-title" class="text-2xl sm:text-5xl md:text-7xl font-bold mt-2 mb-6 tracking-tight text-primary leading-tight whitespace-nowrap">
@@ -142,12 +143,12 @@
                     GenAI | MERN Stack | Catalyst cloud | DevOps
                 </p>
                 
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12 fade-in">
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
                     <a href="#projects" class="w-full sm:w-auto px-8 py-4 bg-accent text-white rounded-2xl font-semibold shadow-lg shadow-accent/25 hover:scale-105 active:scale-95 transition-all duration-300">View Projects</a>
                     <a href="#contact" class="w-full sm:w-auto px-8 py-4 bg-card border border-theme text-primary rounded-2xl font-semibold hover:bg-secondary transition-all duration-300">Get in Touch</a>
                 </div>
                 
-                <div class="terminal max-w-md mx-auto mt-8 fade-in">
+                <div class="terminal max-w-md mx-auto mt-8">
                     <div class="terminal-header">
                         <div class="terminal-dot" style="background: #F43F5E;"></div>
                         <div class="terminal-dot" style="background: #FBBF24;"></div>
@@ -163,170 +164,203 @@
                         <div class="terminal-output" id="terminal-output"></div>
                     </div>
                 </div>
-
-                <!-- Animated Scroll Indicator -->
-               
             </div>
         </section>
 
-        <section id="about" class="py-24 px-6 bg-secondary fade-in" aria-labelledby="about-title">
-            <div class="max-w-6xl mx-auto">
+<section id="about" class="py-24 px-6 relative overflow-hidden" aria-labelledby="about-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-secondary via-primary to-secondary pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-0 left-1/4 w-72 h-72 bg-accent-secondary/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
                 <div class="grid md:grid-cols-5 gap-12 items-center">
                     <div class="md:col-span-2 flex justify-center">
-                        <div class="w-72 h-72 rounded-2xl overflow-hidden border border-theme relative">
-                            <img src="profile.jpeg" alt="Venkata Narayana G V - Forward Deployed Engineer" class="w-full h-full object-cover" loading="lazy">
+                        <div class="relative w-72 h-72 md:w-80 md:h-80 rounded-3xl overflow-hidden border border-theme/50 shadow-[var(--card-shadow)] group transition-all duration-500 hover:shadow-[var(--card-shadow-hover)] hover:-translate-y-1">
+                            <img src="venkat-img.png" alt="Venkata Narayana G V - Forward Deployed Engineer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 dark:hidden" loading="lazy">
+                            <img src="profile.jpeg" alt="Venkata Narayana G V - Forward Deployed Engineer" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 hidden dark:block" loading="lazy">
+                            <div class="absolute inset-0 bg-gradient-to-t from-accent/20 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                            <div class="absolute bottom-0 left-0 right-0 p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-500">
+                                <p class="text-white text-sm font-medium text-center">Forward Deployed Engineer</p>
+                            </div>
                         </div>
                     </div>
                     <div class="md:col-span-3">
-                        <h2 id="about-title" class="text-3xl md:text-4xl font-semibold mb-4 text-primary">About Me</h2>
-                        <div class="w-16 h-1 gradient-accent mb-8 rounded"></div>
-                        <p class="text-secondary font-light leading-relaxed mb-6 text-lg">
-    I am a <span class="text-accent-secondary font-semibold">Forward Deployed Engineer</span> at <span class="font-medium text-primary">Tiny Magiq</span>, building scalable software with modern web technologies. My foundation is built on the <span class="text-accent font-medium">MERN stack</span>, with a specialized focus on robust cloud infrastructure utilizing <span class="italic text-primary">Zoho Catalyst (AppSail)</span> and <span class="italic text-primary">Docker</span>. I focus on shipping serverless systems that are reliable from day one and bridge complex backend logic with real-world utility.
-</p>
-<p class="text-lg leading-relaxed text-secondary font-light mb-6">
-    Currently, I am focused on integrating <span class="font-medium text-primary">AI agents and LLMs</span> into production environments for intelligent data parsing. Whether I am developing dynamic full-stack platforms, managing APIs, or deepening my containerization toolkit, my goal is to craft seamless user experiences that hide underlying complexity and meet modern business demands.
-</p>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium bg-accent/10 text-accent border border-accent/20 mb-4">
+                            <span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
+                            Currently at Tiny Magiq Innovations
+                        </div>
+                        <h2 id="about-title" class="text-3xl md:text-4xl font-bold mb-4 text-primary tracking-tight">About Me</h2>
+                        <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mb-8"></div>
+                        <p class="text-secondary font-light leading-relaxed mb-5 text-base md:text-lg">
+                            I am a <span class="text-accent font-semibold">Forward Deployed Engineer</span> at <span class="font-medium text-primary">Tiny Magiq Innovations</span>, building scalable software with modern web technologies. My foundation is built on the <span class="text-accent-secondary font-medium">MERN stack</span>, with a specialized focus on robust cloud infrastructure utilizing <span class="italic text-primary">Zoho Catalyst (AppSail)</span> and <span class="italic text-primary">Docker</span>. I focus on shipping serverless systems that are reliable from day one and bridge complex backend logic with real-world utility.
+                        </p>
+                        <p class="text-base md:text-lg leading-relaxed text-secondary font-light mb-5">
+                            Currently, I am focused on integrating <span class="font-medium text-primary">AI agents and LLMs</span> into production environments for intelligent data parsing. Whether I am developing dynamic full-stack platforms, managing APIs, or deepening my containerization toolkit, my goal is to craft seamless user experiences that hide underlying complexity and meet modern business demands.
+                        </p>
+                        <div class="flex flex-wrap gap-3 mt-6">
+                            <span class="px-4 py-2 text-xs font-semibold rounded-full bg-accent/10 text-accent border border-accent/20">React</span>
+                            <span class="px-4 py-2 text-xs font-semibold rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Node.js</span>
+                            <span class="px-4 py-2 text-xs font-semibold rounded-full bg-accent-tertiary/10 text-accent-tertiary border border-accent-tertiary/20">Zoho Catalyst</span>
+                            <span class="px-4 py-2 text-xs font-semibold rounded-full bg-green-500/10 text-green-500 border border-green-500/20">Docker</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="current-focus" class="py-24 px-6 bg-primary fade-in" aria-labelledby="focus-title">
-            <div class="max-w-6xl mx-auto">
-                <h2 id="focus-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Current Focus</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-12 rounded"></div>
+        <section id="current-focus" class="py-24 px-6 relative overflow-hidden" aria-labelledby="focus-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-primary pointer-events-none"></div>
+            <div class="absolute bottom-0 right-0 w-80 h-80 bg-accent-tertiary/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-1/3 left-0 w-60 h-60 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="focus-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Current Focus</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                    <p class="text-secondary mt-4 max-w-xl mx-auto font-light">Exploring the edge of modern engineering with a focus on building impactful systems.</p>
+                </div>
                 
-                <div id="focus-scroll-container" class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar gap-6 pb-4 md:grid md:grid-cols-3">
-                    <article class="min-w-[85vw] md:min-w-0 snap-center bg-card border border-accent rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-300 group">
-                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-accent">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                            </svg>
+                <div id="focus-scroll-container" class="flex flex-col md:grid md:grid-cols-3 gap-6">
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:border-accent/30">
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-accent shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3">Engineering</h3>
+                            <p class="text-secondary text-sm font-light leading-relaxed">Architecting scalable, client-facing applications as a Forward Deployed Engineer. Bridging complex backend system logic with intuitive, high-performance frontends.</p>
+                            <div class="mt-6 flex items-center gap-2 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                Explore →
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-primary mb-2">Engineering</h3>
-                        <p class="text-secondary text-sm font-light leading-relaxed">Architecting scalable, client-facing applications as a Forward Deployed Engineer. Bridging complex backend system logic with intuitive, high-performance frontends.</p>
                     </article>
                     
-                    <article class="min-w-[85vw] md:min-w-0 snap-center bg-card border border-accent rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-300 group">
-                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-accent">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                            </svg>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:border-accent/30">
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-accent shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3">Developing</h3>
+                            <p class="text-secondary text-sm font-light leading-relaxed">Building end-to-end Full Stack platforms using React, Node.js, and Zoho Catalyst. Focused on real-world impact through high-quality community and enterprise apps.</p>
+                            <div class="mt-6 flex items-center gap-2 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                Explore →
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-primary mb-2">Developing</h3>
-                        <p class="text-secondary text-sm font-light leading-relaxed">Building end-to-end Full Stack platforms using Next.js, React, Node.js, and Zoho Catalyst. Focused on real-world impact through high-quality community and enterprise apps.</p>
                     </article>
                     
-                    <article class="min-w-[85vw] md:min-w-0 snap-center bg-card border border-accent rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-300 group">
-                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                        <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-accent">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
-                            </svg>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:border-accent/30">
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500 opacity-70 group-hover:opacity-100 transition-opacity"></div>
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 text-accent shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-3">Exploring</h3>
+                            <p class="text-secondary text-sm font-light leading-relaxed">Expanding expertise in Cloud Infrastructure, Docker, Machine Learning (MobileViT), and modern DevOps practices to deliver robust, intelligent solutions.</p>
+                            <div class="mt-6 flex items-center gap-2 text-accent text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                Explore →
+                            </div>
                         </div>
-                        <h3 class="text-xl font-bold text-primary mb-2">Exploring</h3>
-                        <p class="text-secondary text-sm font-light leading-relaxed">Expanding expertise in Cloud Infrastructure, Docker, Machine Learning (MobileViT), and modern DevOps practices to deliver robust, intelligent solutions.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="experience" class="py-24 px-6 bg-secondary fade-in relative overflow-hidden" aria-labelledby="experience-title">
-            <div class="absolute top-1/4 left-0 w-72 h-72 bg-accent/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-1/4 right-0 w-64 h-64 bg-accent-secondary/5 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="max-w-6xl mx-auto">
-                <h2 id="experience-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary flex items-center justify-center gap-3">
-                    <svg class="w-8 h-8 text-blue-700" fill="currentColor" stroke="none" viewBox="0 0 24 24">
-  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-</svg>  Experience
-                </h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-4 rounded"></div>
-                <p class="text-center text-secondary text-sm mb-16 max-w-xl mx-auto">A journey of growth across roles, from intern to forward-deployed engineer, building scalable solutions and bridging backend architecture with high-performance frontends.</p>
+<section id="experience" class="py-24 px-6 relative overflow-hidden" aria-labelledby="experience-title">
+            <div class="absolute top-1/4 left-0 w-80 h-80 bg-accent/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-0 w-72 h-72 bg-accent-secondary/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute top-0 right-1/4 w-40 h-40 bg-accent-tertiary/5 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="experience-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight flex items-center justify-center gap-3">
+                        Experience
+                    </h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                    <p class="text-secondary mt-4 max-w-xl mx-auto font-light">A journey of growth across roles, from intern to forward-deployed engineer, building scalable solutions.</p>
+                </div>
                 
-                <div class="relative">
-                    <!-- Vertical Timeline Line -->
-                    <div class="absolute left-8 top-0 bottom-0 w-[3px] rounded-full" style="background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent); box-shadow: 0 0 8px var(--accent-primary);"></div>
+                <div class="relative max-w-4xl mx-auto">
+                    <div class="absolute left-6 md:left-1/2 md:-translate-x-1/2 top-0 bottom-0 w-[3px] rounded-full" style="background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), var(--accent-tertiary), transparent); box-shadow: 0 0 12px var(--accent-primary);"></div>
                     
-                    <div class="space-y-10 md:space-y-0 md:max-w-4xl md:mx-auto">
+                    <div class="space-y-12 md:space-y-16">
                         <!-- Card 1: Current -->
-                        <div class="relative pl-16 pb-10 md:pb-0 md:pr-8 md:w-1/2 md:ml-auto">
-                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-accent border-2 border-secondary z-10 shadow-[0_0_10px_rgba(37,99,235,0.6)]"></div>
-                            <div class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+                        <div class="relative pl-16 md:pl-0 md:w-1/2 md:ml-auto">
+                            <div class="absolute left-0 top-3 w-6 h-6 rounded-full bg-accent border-[3px] border-secondary z-10 shadow-[0_0_12px_rgba(37,99,235,0.5)]"></div>
+                            <div class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group overflow-hidden">
                                 <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                                <div class="flex items-start gap-5 mb-5">
+                                <div class="absolute top-4 right-4">
+                                    <span class="px-2.5 py-1 text-[10px] font-bold rounded-full bg-accent/10 text-accent border border-accent/30 animate-pulse">Current</span>
+                                </div>
+                                <div class="flex items-start gap-4 mb-4 mt-2">
                                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent to-accent-secondary flex items-center justify-center shadow-lg shadow-accent/20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                                     </div>
-                                    <div class="flex-1">
-                                        <div class="flex flex-wrap items-center gap-2 mb-1">
-                                            <span class="px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-accent/10 text-accent border border-accent/30">Current</span>
-                                            <span class="text-[11px] text-muted">Mar 2026 - Present</span>
-                                        </div>
+                                    <div class="flex-1 min-w-0">
                                         <h3 class="text-lg font-bold text-primary">Forward Deployed Engineer</h3>
                                         <p class="text-accent font-semibold text-sm">Tiny Magiq Innovations</p>
+                                        <span class="text-muted text-xs">Mar 2026 - Present</span>
                                     </div>
                                 </div>
                                 <p class="text-secondary text-sm leading-relaxed mb-4">Working on client-facing engineering solutions, building scalable applications and bridging complex backend architecture with high-performance frontends.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-accent/10 text-accent border border-accent/20">PostgreSQL</span>
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-accent/10 text-accent border border-accent/20">React</span>
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-accent/10 text-accent border border-accent/20">Zoho Catalyst</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-accent/10 text-accent border border-accent/20">PostgreSQL</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-accent/10 text-accent border border-accent/20">React</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-accent/10 text-accent border border-accent/20">Zoho Catalyst</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Card 2: Training -->
-                        <div class="relative pl-16 pt-10 md:pt-0 md:pl-8 md:w-1/2">
-                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-accent-secondary border-2 border-secondary z-10 shadow-[0_0_10px_rgba(8,145,178,0.6)]"></div>
-                            <div class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+                        <div class="relative pl-16 md:pl-0 md:w-1/2">
+                            <div class="absolute left-0 top-3 w-6 h-6 rounded-full bg-accent-secondary border-[3px] border-secondary z-10 shadow-[0_0_12px_rgba(8,145,178,0.5)]"></div>
+                            <div class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group overflow-hidden">
                                 <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent-secondary via-cyan-400 to-blue-400"></div>
-                                <div class="flex items-start gap-5 mb-5">
+                                <div class="flex items-start gap-4 mb-4 mt-2">
                                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-accent-secondary to-cyan-400 flex items-center justify-center shadow-lg shadow-accent-secondary/20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/></svg>
                                     </div>
-                                    <div class="flex-1">
-                                        <div class="flex flex-wrap items-center gap-2 mb-1">
-                                            <span class="px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/30">Training</span>
-                                            <span class="text-[11px] text-muted">Oct 2025 - Feb 2026</span>
-                                        </div>
+                                    <div class="flex-1 min-w-0">
                                         <h3 class="text-lg font-bold text-primary">Incubation Trainee</h3>
                                         <p class="text-accent-secondary font-semibold text-sm">Zoho Corporation</p>
+                                        <span class="text-muted text-xs">Oct 2025 - Feb 2026</span>
                                     </div>
                                 </div>
                                 <p class="text-secondary text-sm leading-relaxed mb-4">Built full-stack applications using React, Node.js, Express, and Zoho Catalyst. Developed and deployed Catalyst Functions, REST APIs, and CRUD modules.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">React</span>
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Zoho Catalyst</span>
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">REST APIs</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">React</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Zoho Catalyst</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">REST APIs</span>
                                 </div>
                             </div>
                         </div>
 
                         <!-- Card 3: Internship -->
-                        <div class="relative pl-16 pt-10 md:pt-0 md:pl-8 md:w-1/2 md:ml-auto">
-                            <div class="absolute left-0 top-2 w-4 h-4 rounded-full bg-blue-500 border-2 border-secondary z-10 shadow-[0_0_10px_rgba(59,130,246,0.6)]"></div>
-                            <div class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 relative overflow-hidden group">
+                        <div class="relative pl-16 md:pl-0 md:w-1/2 md:ml-auto">
+                            <div class="absolute left-0 top-3 w-6 h-6 rounded-full bg-blue-500 border-[3px] border-secondary z-10 shadow-[0_0_12px_rgba(59,130,246,0.5)]"></div>
+                            <div class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group overflow-hidden">
                                 <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-blue-500 via-blue-400 to-cyan-400"></div>
-                                <div class="flex items-start gap-5 mb-5">
+                                <div class="flex items-start gap-4 mb-4 mt-2">
                                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-blue-600 flex items-center justify-center shadow-lg shadow-blue-500/20 flex-shrink-0 group-hover:scale-110 transition-transform duration-300">
                                         <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
                                     </div>
-                                    <div class="flex-1">
-                                        <div class="flex flex-wrap items-center gap-2 mb-1">
-                                            <span class="px-2.5 py-0.5 text-[10px] font-bold rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30">Internship</span>
-                                            <span class="text-[11px] text-muted">Jul 2024 - Aug 2024</span>
-                                        </div>
+                                    <div class="flex-1 min-w-0">
                                         <h3 class="text-lg font-bold text-primary">Web Development Intern</h3>
                                         <p class="text-blue-400 font-semibold text-sm">Eagle Tech IT Solutions</p>
+                                        <span class="text-muted text-xs">Jul 2024 - Aug 2024</span>
                                     </div>
                                 </div>
                                 <p class="text-secondary text-sm leading-relaxed mb-4">Developed and deployed static websites within tight timelines. Independently handled design, development, and hosting.</p>
                                 <div class="flex flex-wrap gap-2">
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">HTML/CSS</span>
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">JavaScript</span>
-                                    <span class="px-2 py-0.5 text-[10px] rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">Deployment</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">HTML/CSS</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">JavaScript</span>
+                                    <span class="px-2.5 py-1 text-[10px] rounded-md bg-blue-500/10 text-blue-400 border border-blue-500/20">Deployment</span>
                                 </div>
                             </div>
                         </div>
@@ -335,87 +369,77 @@
             </div>
         </section>
 
-        <section id="education" class="py-24 px-6 bg-primary fade-in" aria-labelledby="education-title">
-            <div class="max-w-6xl mx-auto">
-                <h2 id="education-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Education Journey</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-16 rounded section-divider"></div>
+        <section id="education" class="py-24 px-6 relative overflow-hidden" aria-labelledby="education-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-primary pointer-events-none"></div>
+            <div class="absolute top-1/3 right-0 w-72 h-72 bg-accent/4 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="education-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Education Journey</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                </div>
                 
                 <div class="relative max-w-5xl mx-auto py-8">
-                    <!-- Central Timeline Line (Desktop) -->
                     <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 top-0 bottom-0 w-1 rounded-full shadow-[0_0_15px_rgba(37,99,235,0.3)]" style="background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);"></div>
-                    <!-- Left Timeline Line (Mobile) -->
                     <div class="md:hidden absolute left-[30px] top-0 bottom-0 w-1 rounded-full" style="background: linear-gradient(to bottom, var(--accent-primary), var(--accent-secondary), transparent);"></div>
                     
                     <div class="space-y-16">
-                        <!-- Timeline Item 1 (Left on desktop) -->
+                        <!-- Timeline Item 1 -->
                         <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item">
-                            <!-- Timeline Dot -->
                             <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(37,99,235,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-primary);"></div>
                             
-                            <!-- Left Content -->
                             <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pr-12 md:text-right">
-                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent">
+                                <article class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent/30">
                                     <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent/10 text-accent border border-accent/20">2021 - 2025</span>
                                     <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">B.Tech - Information Technology</h3>
-                                    <p class="text-accent text-sm font-semibold mb-4">Meenakshi College of Engineering, Chennai</p>
+                                    <p class="text-accent text-sm font-semibold mb-3">Meenakshi College of Engineering, Chennai</p>
                                     <p class="text-secondary text-sm leading-relaxed">Graduated with a CGPA of 7.9. Specialized in software engineering, modern web technologies, and database architecture.</p>
                                 </article>
                             </div>
-                            <!-- Empty Right Space -->
                             <div class="hidden md:block w-5/12"></div>
                         </div>
 
-                        <!-- Timeline Item 2 (Right on desktop) -->
+                        <!-- Timeline Item 2 -->
                         <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-100">
-                            <!-- Timeline Dot -->
                             <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(8,145,178,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
                             
-                            <!-- Empty Left Space -->
                             <div class="hidden md:block w-5/12"></div>
                             
-                            <!-- Right Content -->
                             <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pl-12 text-left">
-                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent-secondary">
+                                <article class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent-secondary/30">
                                     <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">2021</span>
                                     <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">Higher Secondary (12th)</h3>
-                                    <p class="text-accent-secondary text-sm font-semibold mb-4">Good Shepherd Matriculation Hr. Sec. School</p>
+                                    <p class="text-accent-secondary text-sm font-semibold mb-3">Good Shepherd Matriculation Hr. Sec. School</p>
                                     <p class="text-secondary text-sm leading-relaxed">Completed with 85% aggregate. Intensive focus on Mathematics and Computer Science.</p>
                                 </article>
                             </div>
                         </div>
                         
-                        <!-- Timeline Item 3 (Left on desktop) -->
+                        <!-- Timeline Item 3 -->
                         <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-200">
-                            <!-- Timeline Dot -->
                             <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(37,99,235,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-primary);"></div>
                             
-                            <!-- Left Content -->
                             <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pr-12 md:text-right">
-                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent">
+                                <article class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent/30">
                                     <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent/10 text-accent border border-accent/20">2020</span>
                                     <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Higher Secondary (11th)</h3>
-                                    <p class="text-accent text-sm font-semibold mb-4">Good Shepherd Matriculation Hr. Sec. School</p>
+                                    <p class="text-accent text-sm font-semibold mb-3">Good Shepherd Matriculation Hr. Sec. School</p>
                                     <p class="text-secondary text-sm leading-relaxed">Completed with 75% aggregate.</p>
                                 </article>
                             </div>
-                            <!-- Empty Right Space -->
                             <div class="hidden md:block w-5/12"></div>
                         </div>
 
-                        <!-- Timeline Item 4 (Right on desktop) -->
+                        <!-- Timeline Item 4 -->
                         <div class="relative flex flex-col md:flex-row md:justify-between items-center w-full group stagger-item delay-300">
-                            <!-- Timeline Dot -->
                             <div class="absolute left-6 md:left-1/2 transform md:-translate-x-1/2 w-8 h-8 rounded-full z-10 border-[6px] border-[var(--bg-primary)] shadow-[0_0_15px_rgba(8,145,178,0.6)] group-hover:scale-125 transition-transform duration-500" style="background-color: var(--accent-secondary);"></div>
                             
-                            <!-- Empty Left Space -->
                             <div class="hidden md:block w-5/12"></div>
                             
-                            <!-- Right Content -->
                             <div class="w-full md:w-5/12 ml-16 md:ml-0 md:pl-12 text-left">
-                                <article class="bg-card border border-theme rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent-secondary">
+                                <article class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-2 group-hover:border-accent-secondary/30">
                                     <span class="inline-block px-4 py-1.5 mb-4 text-xs font-bold rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">2019</span>
                                     <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">Secondary School (10th)</h3>
-                                    <p class="text-accent-secondary text-sm font-semibold mb-4">Good Shepherd Matriculation Hr. Sec. School</p>
+                                    <p class="text-accent-secondary text-sm font-semibold mb-3">Good Shepherd Matriculation Hr. Sec. School</p>
                                     <p class="text-secondary text-sm leading-relaxed">Completed with 82% aggregate. Built a strong foundation in science and technology.</p>
                                 </article>
                             </div>
@@ -425,169 +449,159 @@
             </div>
         </section>
 
-        <section id="awards" class="py-24 px-6 bg-secondary fade-in" aria-labelledby="awards-title">
-            <div class="max-w-6xl mx-auto">
-                <h2 id="awards-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Awards & Achievements</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-12 rounded"></div>
+        <section id="awards" class="py-24 px-6 relative overflow-hidden" aria-labelledby="awards-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-secondary via-primary to-secondary pointer-events-none"></div>
+            <div class="absolute bottom-0 left-0 w-80 h-80 bg-accent-secondary/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="awards-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Awards & Achievements</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                </div>
                 
-                <div class="grid grid-cols-2 md:flex md:flex-wrap md:justify-center gap-4 md:gap-6">
-                    <article class="bg-card border border-theme rounded-xl p-4 md:p-6 card-hover transition-all duration-300 w-full md:max-w-sm">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent-secondary/10 rounded-lg flex items-center justify-center mb-3 md:mb-4">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group card-hover">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                            <svg class="w-6 h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
                             </svg>
                         </div>
-                        <h3 class="text-base md:text-lg font-semibold text-primary mb-1 md:mb-2 leading-tight">Tree Plantation Drive</h3>
-                        <p class="text-secondary text-xs md:text-sm font-light leading-relaxed">Planted 200+ saplings in June 2023.</p>
+                        <h3 class="text-lg font-bold text-primary mb-2">Tree Plantation Drive</h3>
+                        <p class="text-secondary text-sm font-light leading-relaxed">Planted 200+ saplings in June 2023 as part of a community environmental initiative.</p>
                     </article>
                     
-                    <article class="bg-card border border-theme rounded-xl p-4 md:p-6 card-hover transition-all duration-300 w-full md:max-w-sm">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent-secondary/10 rounded-lg flex items-center justify-center mb-3 md:mb-4">
-                            <svg class="w-5 h-5 md:w-6 md:h-6 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group card-hover">
+                        <div class="w-12 h-12 bg-gradient-to-br from-accent-secondary/20 to-accent-secondary/5 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(8,145,178,0.15)]">
+                            <svg class="w-6 h-6 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
                             </svg>
                         </div>
-                        <h3 class="text-base md:text-lg font-semibold text-primary mb-1 md:mb-2 leading-tight">Attendance Awards</h3>
-                        <p class="text-secondary text-xs md:text-sm font-light leading-relaxed">Received 10 certificates for school attendance.</p>
+                        <h3 class="text-lg font-bold text-primary mb-2">Attendance Awards</h3>
+                        <p class="text-secondary text-sm font-light leading-relaxed">Received 10 certificates for consistent school attendance throughout academic years.</p>
                     </article>
                 </div>
             </div>
         </section>
 
-        <section id="projects" class="py-24 px-6 bg-primary fade-in" aria-labelledby="projects-title">
-            <div class="max-w-6xl mx-auto">
-                <h2 id="projects-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Featured Projects</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-12 rounded"></div>
+        <section id="projects" class="py-24 px-6 relative overflow-hidden" aria-labelledby="projects-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-primary pointer-events-none"></div>
+            <div class="absolute top-1/4 left-0 w-80 h-80 bg-accent/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute bottom-1/4 right-0 w-72 h-72 bg-accent-tertiary/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="projects-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Featured Projects</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                </div>
                 
                 <div class="grid md:grid-cols-2 gap-8">
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item">
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:-translate-y-1 stagger-item">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent to-accent-secondary"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 shadow-sm">
-                                    <span class="relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                                    </span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
+                                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
                                     Live
                                 </span>
-                                <span class="text-xs text-muted">Featured</span>
+                                <span class="text-xs text-muted font-medium">Featured</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Harmonix Musicals</h3>
+                            <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">Harmonix Musicals</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Dynamic web application for a music academy with administrative dashboard and real-time data management.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">React</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Zoho Catalyst</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Serverless</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">React</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Zoho Catalyst</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Serverless</span>
                             </div>
-                            <a href="https://harmonix-musicals.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all floating">
+                            <a href="https://harmonix-musicals.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-100">
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:-translate-y-1 stagger-item delay-100">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent-secondary to-cyan-400"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20 shadow-sm">
-                                    <span class="relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
-                                    </span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-green-500/10 text-green-600 dark:text-green-400 border border-green-500/20">
+                                    <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span></span>
                                     Live
                                 </span>
-                                <span class="text-xs text-muted">Social Impact</span>
+                                <span class="text-xs text-muted font-medium">Social Impact</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">Valasaravakkam Samithi</h3>
+                            <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-accent-secondary transition-colors">Valasaravakkam Samithi</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Web platform for Sri Sathya Sai Seva Organization to manage community outreach and social service initiatives.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Web Development</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Community Service</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Web Development</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Community Service</span>
                             </div>
-                            <a href="https://valasaravakkam-samithi.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all floating-delayed">
+                            <a href="https://valasaravakkam-samithi.vercel.app/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-200">
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:-translate-y-1 stagger-item delay-200">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent-secondary to-blue-400"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20 shadow-sm">
-                                    <span class="relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-                                    </span>
-                                    ML Project
-                                </span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-blue-500/10 text-blue-600 dark:text-blue-400 border border-blue-500/20">ML Project</span>
                                 <span class="text-xs text-accent font-semibold">F1: 0.96</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Knee Osteoarthritis Detection</h3>
+                            <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">Knee Osteoarthritis Detection</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Mobile-ViT-based deep learning model to classify knee osteoarthritis from X-ray images.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Python</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Deep Learning</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">MobileViT</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Python</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Deep Learning</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">MobileViT</span>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all floating">
+                            <a href="#" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-300">
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:-translate-y-1 stagger-item delay-300">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent to-blue-400"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 shadow-sm">
-                                    <span class="relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                    </span>
-                                    In Development
-                                </span>
-                                <span class="text-xs text-muted">PWA Ready</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">In Development</span>
+                                <span class="text-xs text-muted font-medium">PWA Ready</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent transition-colors">Task Tracker & Diary</h3>
+                            <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">Task Tracker & Diary</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Full-stack web application for daily task tracking and personal diary management with analytics.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Next.js</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Supabase</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20 transition-colors group-hover:bg-accent/20">Tailwind</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Next.js</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Supabase</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent/10 text-accent border border-accent/20">Tailwind</span>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all floating-delayed">
+                            <a href="#" class="inline-flex items-center gap-2 text-accent text-sm font-semibold group-hover:gap-3 transition-all">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
                         </div>
                     </article>
 
-                    <article class="bg-card border border-theme rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group stagger-item delay-400">
-                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:-translate-y-1 stagger-item delay-400">
+                        <div class="absolute inset-0 bg-gradient-to-br from-accent-secondary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent-secondary to-purple-400"></div>
                         <div class="relative z-10">
                             <div class="flex items-center justify-between mb-4">
-                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20 shadow-sm">
-                                    <span class="relative flex h-2 w-2">
-                                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                                        <span class="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
-                                    </span>
-                                    In Development
-                                </span>
-                                <span class="text-xs text-muted">Coming Soon</span>
+                                <span class="inline-flex items-center gap-2 px-3 py-1 text-xs font-bold rounded-full bg-red-500/10 text-red-600 dark:text-red-400 border border-red-500/20">In Development</span>
+                                <span class="text-xs text-muted font-medium">Coming Soon</span>
                             </div>
-                            <h3 class="text-xl font-bold text-primary mb-2 group-hover:text-accent-secondary transition-colors">A2ZConverts</h3>
+                            <h3 class="text-xl font-bold text-primary mb-3 group-hover:text-accent-secondary transition-colors">A2ZConverts</h3>
                             <p class="text-secondary text-sm mb-4 leading-relaxed">Full-stack file conversion platform to convert any file format to user's preferred format.</p>
                             <div class="flex flex-wrap gap-2 mb-6">
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Node.js</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">Express</span>
-                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20 transition-colors group-hover:bg-accent-secondary/20">React</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Node.js</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">Express</span>
+                                <span class="px-3 py-1 text-xs rounded-full bg-accent-secondary/10 text-accent-secondary border border-accent-secondary/20">React</span>
                             </div>
-                            <a href="#" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all floating">
+                            <a href="#" class="inline-flex items-center gap-2 text-accent-secondary text-sm font-semibold group-hover:gap-3 transition-all">
                                 View Project
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
                             </a>
@@ -597,18 +611,20 @@
             </div>
         </section>
 
-        <section id="skills" class="py-24 px-6 bg-primary fade-in" aria-labelledby="skills-title">
-            <div class="max-w-6xl mx-auto">
-                <h2 id="skills-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Technical Expertise</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-6 rounded section-divider"></div>
-                <p class="text-secondary text-center font-light max-w-2xl mx-auto mb-16">
-                    Building robust and scalable solutions using modern technologies.
-                </p>
+        <section id="skills" class="py-24 px-6 relative overflow-hidden" aria-labelledby="skills-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-primary pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="skills-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Technical Expertise</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                    <p class="text-secondary mt-4 max-w-2xl mx-auto font-light">Building robust and scalable solutions using modern technologies.</p>
+                </div>
                 
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Frontend Development Pod -->
-                    <div class="skill-pod stagger-item">
-                        <div class="skill-icon-wrapper w-16 h-16 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center mb-6 border border-accent/20">
+                    <div class="skill-pod bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group stagger-item">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 border border-accent/20 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
                             <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
                             </svg>
@@ -624,8 +640,8 @@
                     </div>
 
                     <!-- Backend & Cloud Pod -->
-                    <div class="skill-pod stagger-item delay-100">
-                        <div class="skill-icon-wrapper w-16 h-16 mx-auto bg-accent-secondary/10 rounded-2xl flex items-center justify-center mb-6 border border-accent-secondary/20">
+                    <div class="skill-pod bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group stagger-item delay-100">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent-secondary/20 to-accent-secondary/5 rounded-2xl flex items-center justify-center mb-6 border border-accent-secondary/20 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(8,145,178,0.15)]">
                             <svg class="w-8 h-8 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
                             </svg>
@@ -651,8 +667,8 @@
                     </div>
 
                     <!-- Database & Tools Pod -->
-                    <div class="skill-pod stagger-item delay-200">
-                        <div class="skill-icon-wrapper w-16 h-16 mx-auto bg-accent/10 rounded-2xl flex items-center justify-center mb-6 border border-accent/20">
+                    <div class="skill-pod bg-card border border-theme/50 rounded-2xl p-8 shadow-[var(--card-shadow)] hover:shadow-[var(--card-shadow-hover)] transition-all duration-500 hover:-translate-y-1 group stagger-item delay-200">
+                        <div class="w-16 h-16 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 border border-accent/20 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
                             <svg class="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4m0 5c0 2.21-3.582 4-8 4s-8-1.79-8-4"/>
                             </svg>
@@ -681,65 +697,85 @@
             </div>
         </section>
 
-<section id="interests-carousel" class="py-24 px-6 bg-secondary fade-in" aria-labelledby="interests-title">
-    <div class="max-w-6xl mx-auto">
-        <h2 id="interests-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Interests & Hobbies</h2>
-        <div class="w-16 h-1 gradient-accent mx-auto mb-12 rounded"></div>
-        
-        <div class="grid md:grid-cols-3 gap-6">
-            
-            <div class="bg-card border border-accent rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-300 group">
-                <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-7 h-7 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+<section id="interests-carousel" class="py-24 px-6 relative overflow-hidden" aria-labelledby="interests-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-secondary via-primary to-secondary pointer-events-none"></div>
+            <div class="absolute top-1/3 right-0 w-72 h-72 bg-accent/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-6xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="interests-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Interests & Hobbies</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
                 </div>
-                <h3 class="text-xl font-bold text-primary mb-3">Community Service</h3>
-                <ul class="space-y-3">
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span> Sathya Sai Seva Organisation</li>
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span> Food Distribution</li>
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span> Medical Camps</li>
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span> Sai Bhajans</li>
-                </ul>
-            </div>
-            
-            <div class="bg-card border border-accent rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-300 group">
-                <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                <div class="w-12 h-12 bg-accent-secondary/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-6 h-6 text-accent-secondary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
-                </div>
-                <h3 class="text-lg font-bold text-primary mb-3">Electronics</h3>
-                <ul class="space-y-3">
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent-secondary flex-shrink-0"></span> Exploring Devices</li>
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent-secondary flex-shrink-0"></span> Gadgets</li>
-                </ul>
-            </div>
-            
-            <div class="bg-card border border-accent rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-300 group">
-                <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
-                <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                    <svg class="w-6 h-6 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 4.477 9.246 4 7.5 4S4.168 4.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 4.477 14.754 4 16.5 4c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
-                </div>
-                <h3 class="text-lg font-bold text-primary mb-3">Learning</h3>
-                <ul class="space-y-3">
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span> Web Technologies</li>
-                    <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-blue-400 flex-shrink-0"></span> Machine Learning</li>
-                </ul>
-            </div>
-            
-    </div>
-</section>
-
-<section id="contact" class="py-24 px-6 bg-primary fade-in" aria-labelledby="contact-title">
-    <div class="max-w-4xl mx-auto">
-                <h2 id="contact-title" class="text-3xl md:text-4xl font-semibold text-center mb-4 text-primary">Get In Touch</h2>
-                <div class="w-16 h-1 gradient-accent mx-auto mb-6 rounded"></div>
-                <p class="text-secondary text-center font-light max-w-xl mx-auto mb-12">
-                    I'm currently open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out.
-                </p>
                 
-                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-8">
-                    <a href="mailto:venkatnarayana727@gmail.com" class="bg-card border border-theme flex flex-col items-center justify-center rounded-xl p-4 md:p-6 text-center card-hover transition-all duration-300 group col-span-1 md:col-span-2 xl:col-span-1" aria-label="Send email">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-2 md:mb-4 group-hover:bg-accent/20 transition-colors">
+                <div class="grid md:grid-cols-3 gap-6">
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:border-accent/30 stagger-item">
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 text-accent shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-4">Community Service</h3>
+                            <ul class="space-y-3">
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Sathya Sai Seva Organisation</li>
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Food Distribution</li>
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Medical Camps</li>
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Sai Bhajans</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:border-accent/30 stagger-item delay-100">
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 text-accent shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-4">Electronics</h3>
+                            <ul class="space-y-3">
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Exploring Devices</li>
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Gadgets</li>
+                            </ul>
+                        </div>
+                    </article>
+                    
+                    <article class="bg-card border border-theme/50 rounded-2xl p-8 relative overflow-hidden card-hover transition-all duration-500 group hover:border-accent/30 stagger-item delay-200">
+                        <div class="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-accent via-accent-secondary to-blue-500"></div>
+                        <div class="absolute top-0 right-0 w-24 h-24 bg-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-2xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform duration-300 text-accent shadow-[0_0_20px_rgba(37,99,235,0.15)]">
+                                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 4.477 9.246 4 7.5 4S4.168 4.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 4.477 14.754 4 16.5 4c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-xl font-bold text-primary mb-4">Learning</h3>
+                            <ul class="space-y-3">
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Web Technologies</li>
+                                <li class="text-secondary font-light flex items-center gap-3"><span class="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0"></span>Machine Learning</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+<section id="contact" class="py-24 px-6 relative overflow-hidden" aria-labelledby="contact-title">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary via-secondary to-primary pointer-events-none"></div>
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/3 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="relative max-w-4xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="contact-title" class="text-3xl md:text-4xl font-bold text-primary tracking-tight">Get In Touch</h2>
+                    <div class="w-20 h-1 rounded-full bg-gradient-to-r from-accent to-accent-secondary mx-auto mt-4"></div>
+                    <p class="text-secondary mt-4 max-w-xl mx-auto font-light">I'm currently open to new opportunities and collaborations. Whether you have a project in mind or just want to connect, feel free to reach out.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4 md:gap-6 mb-12">
+                    <a href="mailto:venkatnarayana727@gmail.com" class="bg-card border border-theme/50 flex flex-col items-center justify-center rounded-2xl p-6 md:p-8 text-center card-hover transition-all duration-300 group hover:border-accent/30 col-span-1 md:col-span-2 xl:col-span-1" aria-label="Send email">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
@@ -748,8 +784,8 @@
                         <p class="text-secondary text-xs overflow-hidden text-ellipsis whitespace-nowrap max-w-full">venkatnarayana727@gmail.com</p>
                     </a>
 
-                    <a href="tel:7010919624" class="bg-card border border-theme rounded-xl p-3 md:p-6 text-center card-hover transition-all duration-300 group flex flex-col items-center justify-center" aria-label="Phone">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-0 md:mb-4 group-hover:bg-accent/20 transition-colors">
+                    <a href="tel:7010919624" class="bg-card border border-theme/50 rounded-2xl p-4 md:p-6 text-center card-hover transition-all duration-300 group hover:border-accent/30 flex flex-col items-center justify-center" aria-label="Phone">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                             </svg>
@@ -758,8 +794,8 @@
                         <p class="hidden md:block text-secondary text-sm">+91 7010919624</p>
                     </a>
 
-                    <a href="https://www.linkedin.com/in/venkatanarayana-g-v-454ba92a7" target="_blank" rel="noopener" class="bg-card border border-theme rounded-xl p-3 md:p-6 text-center card-hover transition-all duration-300 group flex flex-col items-center justify-center" aria-label="LinkedIn profile">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-0 md:mb-4 group-hover:bg-accent/20 transition-colors">
+                    <a href="https://www.linkedin.com/in/venkatanarayana-g-v-454ba92a7" target="_blank" rel="noopener" class="bg-card border border-theme/50 rounded-2xl p-4 md:p-6 text-center card-hover transition-all duration-300 group hover:border-accent/30 flex flex-col items-center justify-center" aria-label="LinkedIn profile">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
                             </svg>
@@ -768,8 +804,8 @@
                         <p class="hidden md:block text-secondary text-sm">Connect with me</p>
                     </a>
 
-                    <a href="https://github.com/venkatanarayana15" target="_blank" rel="noopener" class="bg-card border border-theme rounded-xl p-3 md:p-6 text-center card-hover transition-all duration-300 group flex flex-col items-center justify-center" aria-label="GitHub profile">
-                        <div class="w-10 h-10 md:w-12 md:h-12 bg-accent/10 rounded-lg flex items-center justify-center mx-auto mb-0 md:mb-4 group-hover:bg-accent/20 transition-colors">
+                    <a href="https://github.com/venkatanarayana15" target="_blank" rel="noopener" class="bg-card border border-theme/50 rounded-2xl p-4 md:p-6 text-center card-hover transition-all duration-300 group hover:border-accent/30 flex flex-col items-center justify-center" aria-label="GitHub profile">
+                        <div class="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-accent/20 to-accent/5 rounded-xl flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300 shadow-[0_0_20px_rgba(37,99,235,0.15)]">
                             <svg class="w-5 h-5 md:w-6 md:h-6 text-accent" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                                 <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                             </svg>
@@ -780,7 +816,7 @@
                 </div>
                 
                 <div class="text-center">
-                    <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg font-medium shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:-translate-y-1 transition-all duration-300" aria-label="Download resume PDF">
+                    <a href="resume.pdf" download class="inline-flex items-center gap-2 bg-accent hover:bg-accent/90 text-white px-8 py-4 rounded-xl font-semibold shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:-translate-y-1 transition-all duration-300" aria-label="Download resume PDF">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
                         </svg>
@@ -788,22 +824,22 @@
                     </a>
                 </div>
                 
-                <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-accent px-6 py-3 rounded-lg font-medium opacity-0 pointer-events-none transition-all" style="color: var(--bg-primary);" role="alert" aria-live="polite">
+                <div id="toast" class="fixed bottom-8 left-1/2 -translate-x-1/2 bg-accent px-6 py-3 rounded-xl font-medium opacity-0 pointer-events-none transition-all" style="color: var(--bg-primary);" role="alert" aria-live="polite">
                     Email copied to clipboard!
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="py-8 px-6 border-t border-theme bg-secondary" role="contentinfo">
+    <footer class="py-10 px-6 border-t border-theme/50 bg-secondary" role="contentinfo">
         <div class="max-w-6xl mx-auto text-center">
-            <span class="text-accent font-semibold">&lt;Venkata Narayana /&gt;</span>
-            <p class="text-muted text-sm mt-2">&copy; 2025 Venkata Narayana G V. Crafted with precision.</p>
+            <span class="text-accent font-semibold text-lg">&lt;Venkata Narayana /&gt;</span>
+            <p class="text-muted text-sm mt-2">&copy; 2026 Venkata Narayana G V. Crafted with precision.</p>
         </div>
     </footer>
     
     <button class="back-to-top" onclick="scrollToTop()" aria-label="Back to top">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"/>
         </svg>
     </button>

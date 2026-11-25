@@ -30,7 +30,6 @@
             root.style.colorScheme = theme;
 
             toggle.setAttribute('aria-checked', String(isLight));
-            toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
             toggle.title = isLight ? 'Switch to dark mode' : 'Switch to light mode';
 
             const themeColor = document.querySelector('meta[name="theme-color"]');
@@ -213,38 +212,6 @@
     }
 
     /* ---------------------------------------------------------------------
-       Section labels (film-strip chapter markers)
-       --------------------------------------------------------------------- */
-    function initSectionLabels() {
-        const sections = Array.from(document.querySelectorAll('section[data-cinematic]:not(#hero)'));
-        if (!sections.length) return;
-
-        const observer = reduceMotion() ? null : new IntersectionObserver((entries) => {
-            entries.forEach((entry) => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
-
-        sections.forEach((section) => {
-            if (section.querySelector(':scope > .section-label')) return;
-            const label = document.createElement('div');
-            label.className = 'section-label';
-            label.setAttribute('aria-hidden', 'true');
-            label.textContent = section.dataset.label || section.id.toUpperCase();
-            section.insertBefore(label, section.firstChild);
-
-            if (reduceMotion()) {
-                label.classList.add('visible');
-            } else {
-                observer.observe(label);
-            }
-        });
-    }
-
-    /* ---------------------------------------------------------------------
        Scroll-linked UI: nav state, progress, back-to-top, HUD
        --------------------------------------------------------------------- */
     function initScrollUI() {
@@ -328,20 +295,50 @@
             return;
         }
 
+        const reveal = (el) => {
+            if (el.classList.contains('visible')) return;
+            el.classList.add('visible');
+            observer.unobserve(el);
+            // Drop the stagger delay once the reveal is done so hover/tilt
+            // transitions stay instant afterwards.
+            window.setTimeout(() => {
+                el.classList.remove('delay-100', 'delay-200', 'delay-300', 'delay-400');
+            }, 1200);
+        };
+
         const observer = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-                // Drop the stagger delay once the reveal is done so hover/tilt
-                // transitions stay instant afterwards.
-                window.setTimeout(() => {
-                    entry.target.classList.remove('delay-100', 'delay-200', 'delay-300', 'delay-400');
-                }, 1200);
+                if (entry.isIntersecting) reveal(entry.target);
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        // A low threshold keeps tall cards (timeline entries) revealing even
+        // when they enter the viewport bottom-first during a fast scroll.
+        }, { threshold: 0.01, rootMargin: '0px 0px -40px 0px' });
 
         elements.forEach((el) => observer.observe(el));
+
+        // Fallback sweep: anchor jumps and very fast scrolls can move past an
+        // element between observer samples, so re-check anything on screen.
+        let queued = false;
+        const sweep = () => {
+            queued = false;
+            const limit = window.innerHeight - 40;
+            // Read all boxes first, then write classes — avoids layout thrash.
+            const pending = [];
+            elements.forEach((el) => {
+                if (el.classList.contains('visible')) return;
+                const rect = el.getBoundingClientRect();
+                if (rect.top < limit && rect.bottom > 0) pending.push(el);
+            });
+            pending.forEach(reveal);
+        };
+        const schedule = () => {
+            if (queued) return;
+            queued = true;
+            window.requestAnimationFrame(sweep);
+        };
+        window.addEventListener('scroll', schedule, { passive: true });
+        window.addEventListener('resize', schedule, { passive: true });
+        window.addEventListener('load', schedule);
     }
 
     /* ---------------------------------------------------------------------
@@ -718,12 +715,118 @@
     }
 
     /* ---------------------------------------------------------------------
+       Mobile disclosures
+       Long-form content stays in the DOM but is collapsed on phones, where
+       it made every section several screens tall. Desktop keeps it open.
+       --------------------------------------------------------------------- */
+    function initMobileDisclosures() {
+        const items = Array.from(document.querySelectorAll('.m-expand'));
+        if (!items.length) return;
+
+        const phone = window.matchMedia('(max-width: 767px)');
+        const rails = Array.from(document.querySelectorAll(
+            '.capability-grid, .achievement-grid, .education-grid, .interest-grid'
+        ));
+
+        const sync = (isPhone) => {
+            items.forEach((item) => { item.open = !isPhone; });
+            // Rails only scroll horizontally on phones; make them keyboard-scrollable there.
+            rails.forEach((rail) => {
+                if (isPhone) rail.setAttribute('tabindex', '0');
+                else rail.removeAttribute('tabindex');
+            });
+        };
+
+        sync(phone.matches);
+        phone.addEventListener('change', (event) => sync(event.matches));
+
+        // Printing from a phone should include the full content.
+        window.addEventListener('beforeprint', () => {
+            items.forEach((item) => { item.open = true; });
+        });
+    }
+
+    /* ---------------------------------------------------------------------
+       Phone project carousel
+       --------------------------------------------------------------------- */
+    function initProjectCarousel() {
+        const grid = document.querySelector('.projects-grid');
+        const dotsWrap = document.querySelector('.project-dots');
+        if (!grid || !dotsWrap) return;
+
+        const cards = Array.from(grid.querySelectorAll('.project-card'));
+        const dots = Array.from(dotsWrap.querySelectorAll('.project-dot'));
+        if (cards.length < 2 || dots.length !== cards.length) return;
+
+        const phone = window.matchMedia('(max-width: 767px)');
+        let frame = 0;
+
+        const setActive = (index) => {
+            dots.forEach((dot, i) => {
+                const active = i === index;
+                dot.classList.toggle('is-active', active);
+                if (active) dot.setAttribute('aria-current', 'true');
+                else dot.removeAttribute('aria-current');
+            });
+        };
+
+        const currentIndex = () => {
+            const gridBox = grid.getBoundingClientRect();
+            const gridCenter = gridBox.left + gridBox.width / 2;
+            let index = 0;
+            let closest = Infinity;
+
+            cards.forEach((card, i) => {
+                const box = card.getBoundingClientRect();
+                const distance = Math.abs(box.left + box.width / 2 - gridCenter);
+                if (distance < closest) {
+                    closest = distance;
+                    index = i;
+                }
+            });
+            return index;
+        };
+
+        const sync = () => {
+            if (!phone.matches) return;
+            setActive(currentIndex());
+        };
+
+        grid.addEventListener('scroll', () => {
+            if (!phone.matches) return;
+            cancelAnimationFrame(frame);
+            frame = requestAnimationFrame(sync);
+        }, { passive: true });
+
+        dots.forEach((dot, i) => {
+            dot.addEventListener('click', () => {
+                const card = cards[i];
+                const left = grid.scrollLeft +
+                    (card.getBoundingClientRect().left - grid.getBoundingClientRect().left) -
+                    (grid.clientWidth - card.offsetWidth) / 2;
+                grid.scrollTo({ left, behavior: reduceMotion() ? 'auto' : 'smooth' });
+                setActive(i);
+            });
+        });
+
+        phone.addEventListener('change', () => {
+            if (phone.matches) {
+                sync();
+            } else {
+                grid.scrollLeft = 0;
+                setActive(0);
+            }
+        });
+
+        sync();
+    }
+
+    /* ---------------------------------------------------------------------
        Boot
        --------------------------------------------------------------------- */
     function boot() {
         initTheme();
         initPreloader();
-        initSectionLabels();
         initScrollUI();
         initReveals();
         initTerminal();
@@ -732,6 +835,8 @@
         initParticles();
         initTilt();
         initMagnetic();
+        initMobileDisclosures();
+        initProjectCarousel();
         initTicker();
         initCounters();
         initLocalTime();

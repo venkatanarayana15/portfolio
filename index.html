@@ -76,31 +76,14 @@
 
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23070A14'/%3E%3Cpath d='M28 26h12l10 30 10-30h12L56 76H44z' fill='%2322D3EE'/%3E%3C/svg%3E">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.tailwindcss.com">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        accent: 'var(--accent-primary)',
-                        'accent-secondary': 'var(--accent-secondary)'
-                    },
-                    fontFamily: {
-                        inter: ['Inter', 'sans-serif'],
-                        mono: ['JetBrains Mono', 'monospace'],
-                        display: ['Space Grotesk', 'sans-serif']
-                    }
-                }
-            }
-        }
-    </script>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preload" href="fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/jetbrains-mono-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/devicon.min.css" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.18.0/devicon.min.css">
+    </noscript>
     <link rel="stylesheet" href="futuristic.css">
     <noscript>
         <style>
@@ -127,7 +110,7 @@
     </div>
 
     <!-- Navigation -->
-    <nav id="site-nav" class="site-nav fixed top-0 left-0 right-0 z-50" role="navigation" aria-label="Main navigation">
+    <nav id="site-nav" class="site-nav" role="navigation" aria-label="Main navigation">
         <div class="nav-inner">
             <a href="#hero" class="brand">
                 <span class="brand-mark" aria-hidden="true">V</span>
@@ -180,6 +163,10 @@
         <div class="mobile-menu-foot">
             <a href="mailto:venkatnarayana727@gmail.com" class="mobile-menu-mail">venkatnarayana727@gmail.com</a>
             <a href="tel:+917010919624" class="mobile-menu-phone">+91 7010919624</a>
+            <a href="resume.pdf" download="Venkata-Narayana-Resume.pdf" class="mobile-menu-resume">
+                Download Resume
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.6a1 1 0 01.7.3l5.4 5.4a1 1 0 01.3.7V19a2 2 0 01-2 2z"/></svg>
+            </a>
             <div class="mobile-menu-social">
                 <a href="https://www.linkedin.com/in/venkata-narayana-g-v-454ba92a7" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
                 <a href="https://github.com/venkatanarayana15" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -217,7 +204,10 @@
             <div class="hero-inner">
                 <div class="hero-copy">
                     <div class="hero-status">
-                        <span class="hero-status-dot" aria-hidden="true"></span>
+                        <span class="hero-avatar" aria-hidden="true">
+                            <img src="venkat-avatar.webp" alt="" width="34" height="34" decoding="async">
+                            <span class="hero-avatar-dot"></span>
+                        </span>
                         <span>Open to opportunities</span>
                         <span class="hero-status-sep" aria-hidden="true">/</span>
                         <span>Chennai, India</span>
@@ -226,7 +216,7 @@
                     <span class="hero-eyebrow">Forward Deployed Engineer · AI Engineer</span>
                     <h1 id="hero-title" class="cinematic-title hero-title"><span>VENKATA</span> <span>NARAYANA G V</span></h1>
                     <p class="hero-subtitle">I build AI-powered products — and ship them to real users.</p>
-                    <p class="hero-lead">Forward Deployed Engineer Intern at Tiny Magiq Innovations, embedded with Team Everest NGO. I took <strong>Centralize</strong> from a single-form OCR tool to a multi-tenant document-intelligence platform that replaced manual data entry.</p>
+                    <p class="hero-lead">Forward Deployed Engineer Intern at Tiny Magiq Innovations, embedded with Team Everest NGO. I took <strong>Centralize</strong> from a single-form OCR tool to a centralized document-intelligence platform that replaced manual data entry.</p>
 
                     <div class="hero-actions">
                         <a href="#projects" class="btn-primary-fx" data-magnetic>
@@ -241,7 +231,7 @@
 
                     <div class="hero-stats">
                         <div class="hero-stat">
-                            <span class="hero-stat-value">03</span>
+                            <span class="hero-stat-value">02</span>
                             <span class="hero-stat-label">Live products</span>
                         </div>
                         <div class="hero-stat">
@@ -328,8 +318,7 @@
                 <div class="about-visual">
                     <div class="portrait-frame">
                         <div class="portrait-scan" aria-hidden="true"></div>
-                        <img class="portrait-img portrait-img-dark" src="profile.jpeg" alt="Venkata Narayana G V" loading="lazy" decoding="async">
-                        <img class="portrait-img portrait-img-light" src="venkat-img.png" alt="Venkata Narayana G V" loading="lazy" decoding="async">
+                        <img src="venkat-portrait.webp" alt="Venkata Narayana G V" width="720" height="720" loading="lazy" decoding="async">
                         <div class="portrait-hud" aria-hidden="true">
                             <span class="portrait-tag">SUBJECT // VN-01</span>
                             <span class="portrait-tag">CHENNAI · IN</span>
@@ -342,12 +331,17 @@
                 </div>
 
                 <div class="about-copy">
-                    <span class="section-kicker">Profile</span>
+                    <span class="section-kicker">01 · Profile</span>
                     <h2 id="about-title" class="section-title">I turn messy workflows into shipped software.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p>I'm a <strong>Forward Deployed Engineer</strong> who works where engineering meets the customer. At Tiny Magiq Innovations I was assigned to <strong>Team Everest</strong>, an NGO running scholarship programmes, and owned <strong>Centralize</strong> end to end — from a single-form OCR tool to a centralized document-intelligence platform.</p>
-                    <p>That meant understanding the requirement on-site, rebuilding the pipeline around real workflows, and handing over a validated deployment with documentation. Before that, I trained on <strong>Zoho Catalyst</strong> at Zoho Corporation and built full-stack applications with React, Node.js and serverless data services.</p>
-                    <p>I care about the last mile: role-based access, audit logs, retries, observability, and interfaces the client's team can actually run without me.</p>
+                    <details class="m-expand about-more" open>
+                        <summary class="m-expand-summary">Read the full profile<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                        <div class="m-expand-body">
+                            <p>That meant understanding the requirement on-site, rebuilding the pipeline around real workflows, and handing over a validated deployment with documentation. Before that, I trained on <strong>Zoho Catalyst</strong> at Zoho Corporation — React, Node.js and serverless data services — learning how business workflow applications are put together.</p>
+                            <p>I care about the last mile: access control, retries, observability, and interfaces the client's team can actually run without me.</p>
+                        </div>
+                    </details>
 
                     <div class="about-tags">
                         <span class="tag-chip">Forward Deployed</span>
@@ -361,7 +355,7 @@
             <div class="section-inner">
                 <div class="stat-strip">
                     <div class="stat-card">
-                        <span class="stat-value" data-count="3" data-pad="2">03</span>
+                        <span class="stat-value" data-count="2" data-pad="2">02</span>
                         <span class="stat-label">Live products</span>
                     </div>
                     <div class="stat-card">
@@ -386,13 +380,13 @@
             <div class="section-glow glow-b" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">What I do</span>
+                    <span class="section-kicker">02 · What I do</span>
                     <h2 id="capabilities-title" class="section-title">Three layers, one delivery.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p class="section-sub">From the first client conversation to the production handover — and the AI pipeline in between.</p>
                 </div>
 
-                <div class="capability-grid">
+                <div class="capability-grid" aria-label="Capabilities">
                     <article class="capability-card stagger-item">
                         <div class="capability-index">01</div>
                         <div class="capability-icon" aria-hidden="true">
@@ -438,7 +432,7 @@
             <div class="section-glow glow-a" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Career</span>
+                    <span class="section-kicker">03 · Career</span>
                     <h2 id="experience-title" class="section-title">Experience</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p class="section-sub">Three roles, one direction: build closer to the user and own the delivery.</p>
@@ -458,16 +452,21 @@
                             <p class="timeline-company">Tiny Magiq Innovations <span>· Chennai</span></p>
                             <p class="timeline-client">Client: Team Everest NGO — scholarship programmes</p>
                             <p class="timeline-summary">Owned <strong>Centralize</strong>, an OCR and document-intelligence platform that replaced fully manual scholarship-form data entry.</p>
-                            <ul class="timeline-list">
-                                <li>Built an OCR pipeline that auto-fetches applications from Zoho Creator, extracts handwritten data and writes it to Supabase.</li>
-                                <li>Rebuilt it into a centralized app: any-form templates, batch upload, per-document status, Excel export, RBAC and audit logs.</li>
-                                <li>Hardened delivery with Celery workers, Redis, Lua-scripted rate limiting, retries, Grafana and Sentry.</li>
-                                <li>Scaled batches from 10–15 files to 108 files — 100 images processed in under 8 minutes — and consolidated 17 Docker services into 5 containers.</li>
-                                <li>Worked on-site twice a week, validated the deployment on a GCP VM and handed over docs + a 30-day live link in Nov 2026.</li>
-                            </ul>
-                            <div class="card-tags">
-                                <span>Python</span><span>FastAPI</span><span>React</span><span>Supabase</span><span>Celery</span><span>Redis</span><span>Docker</span><span>GCP</span>
-                            </div>
+                            <details class="m-expand xp-more" open>
+                                <summary class="m-expand-summary">Highlights &amp; stack<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                                <div class="m-expand-body">
+                                    <ul class="timeline-list">
+                                        <li>Built an OCR pipeline that auto-fetches applications from Zoho Creator, extracts handwritten data and writes it to Supabase.</li>
+                                        <li>Rebuilt it into a centralized app: any-form templates, batch upload, per-document status, Excel export and Admin/User RBAC, with audit logging as a stated client requirement.</li>
+                                        <li>Hardened delivery with Celery workers (Redis as the message broker), Lua-scripted rate limiting, retries, Grafana and Sentry.</li>
+                                        <li>Scaled batches from 10–15 files to 108 files — 100 images processed in under 8 minutes — and consolidated 17 Docker services into 5 containers.</li>
+                                        <li>Worked on-site twice a week, validated the deployment on a GCP VM and handed over docs + a 30-day live link in Nov 2026.</li>
+                                    </ul>
+                                    <div class="card-tags">
+                                        <span>Python</span><span>FastAPI</span><span>React</span><span>Supabase</span><span>Celery</span><span>Redis (Celery broker)</span><span>Docker</span><span>GCP</span>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </article>
 
@@ -480,16 +479,21 @@
                             </div>
                             <h3>Incubation Trainee (Catalyst)</h3>
                             <p class="timeline-company">Zoho Corporation <span>· Chennai</span></p>
-                            <p class="timeline-summary">Learned how business workflow applications are designed and why each layer exists — then built with them.</p>
-                            <ul class="timeline-list">
-                                <li>Built full-stack features with React.js, Node.js and REST APIs.</li>
-                                <li>Integrated Zoho CRM and external APIs with CRUD endpoints for data sync and automation.</li>
-                                <li>Used Zoho Catalyst Data Store and Authentication services for data access and auth.</li>
-                                <li>Tested APIs with Postman and documented workflows, integrations and implementation details.</li>
-                            </ul>
-                            <div class="card-tags">
-                                <span>React</span><span>Node.js</span><span>Zoho Catalyst</span><span>REST APIs</span><span>Zoho CRM</span>
-                            </div>
+                            <p class="timeline-summary">Learned how business workflow applications are designed and why each layer exists — and practised building them.</p>
+                            <details class="m-expand xp-more" open>
+                                <summary class="m-expand-summary">What I learned &amp; stack<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                                <div class="m-expand-body">
+                                    <ul class="timeline-list">
+                                        <li>Learned full-stack development with React.js, Node.js and REST APIs, including how business workflow apps are structured.</li>
+                                        <li>Learned to integrate Zoho CRM and external APIs with CRUD endpoints for data sync and automation.</li>
+                                        <li>Learned data access and authentication with Zoho Catalyst Data Store and Authentication services.</li>
+                                        <li>Tested APIs with Postman and documented workflows, integrations and implementation details.</li>
+                                    </ul>
+                                    <div class="card-tags">
+                                        <span>React</span><span>Node.js</span><span>Zoho Catalyst</span><span>REST APIs</span><span>Zoho CRM</span>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </article>
 
@@ -503,13 +507,18 @@
                             <h3>Web Development Intern</h3>
                             <p class="timeline-company">Eagle Tech IT Solutions <span>· Chennai</span></p>
                             <p class="timeline-summary">Delivered responsive websites end to end within a six-week internship.</p>
-                            <ul class="timeline-list">
-                                <li>Designed and deployed responsive websites using React.js, Node.js, HTML5, CSS3 and JavaScript.</li>
-                                <li>Handled hosting, DNS configuration and end-to-end implementation.</li>
-                            </ul>
-                            <div class="card-tags">
-                                <span>React</span><span>Node.js</span><span>HTML/CSS</span><span>DNS &amp; Hosting</span>
-                            </div>
+                            <details class="m-expand xp-more" open>
+                                <summary class="m-expand-summary">Details &amp; stack<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                                <div class="m-expand-body">
+                                    <ul class="timeline-list">
+                                        <li>Designed and deployed responsive websites using React.js, Node.js, HTML5, CSS3 and JavaScript.</li>
+                                        <li>Handled hosting, DNS configuration and end-to-end implementation.</li>
+                                    </ul>
+                                    <div class="card-tags">
+                                        <span>React</span><span>Node.js</span><span>HTML/CSS</span><span>DNS &amp; Hosting</span>
+                                    </div>
+                                </div>
+                            </details>
                         </div>
                     </article>
                 </div>
@@ -522,10 +531,16 @@
             <div class="section-glow glow-c" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Selected work</span>
+                    <span class="section-kicker">04 · Selected work</span>
                     <h2 id="projects-title" class="section-title">Products, shipped.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p class="section-sub">Live platforms, a client delivery and the tools behind them.</p>
+                </div>
+
+                <div class="project-dots" role="group" aria-label="Project carousel navigation">
+                    <button type="button" class="project-dot is-active" aria-label="Show Centralize — OCR and Document Intelligence" aria-current="true"></button>
+                    <button type="button" class="project-dot" aria-label="Show Medical Camp Portal"></button>
+                    <button type="button" class="project-dot" aria-label="Show Harmonix Musicals"></button>
                 </div>
 
                 <div class="projects-grid">
@@ -540,18 +555,32 @@
                                 </div>
                                 <h3 id="centralize-title">Centralize — OCR &amp; Document Intelligence</h3>
                                 <p class="project-desc">A centralized platform that extracts handwritten scholarship forms into a database, replacing fully manual data entry for an NGO running scholarship programmes.</p>
-                                <ul class="feature-list">
-                                    <li>Any-form templates with one-click layout and database mapping</li>
-                                    <li>Batch upload with pipeline progress, retries and recovery</li>
-                                    <li>Admin/User RBAC, audit logs and confidence-scored extraction</li>
-                                </ul>
+                                <details class="m-expand project-more" open>
+                                    <summary class="m-expand-summary">Read the case study<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                                    <div class="m-expand-body">
+                                        <div class="case-study">
+                                            <div class="case-row">
+                                                <span class="case-label">Problem</span>
+                                                <p>Team Everest's volunteers hand-fill scholarship verification forms, then staff re-type every one into a database — slow, repetitive and error-prone.</p>
+                                            </div>
+                                            <div class="case-row">
+                                                <span class="case-label">What I built</span>
+                                                <p>An OCR pipeline that pulls new uploads from Zoho Creator and extracts handwritten data into Supabase, grown into a centralized app with any-form templates, batch upload, per-document status, Excel export, confidence scoring and Admin/User RBAC.</p>
+                                            </div>
+                                            <div class="case-row">
+                                                <span class="case-label">Outcome</span>
+                                                <p>Batches grew from 10–15 files to 108; 100 images process in under 8 minutes. Validated on a GCP VM, documented and handed over in Nov 2026.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </details>
                                 <div class="metric-row">
                                     <span><strong>108</strong> files / batch</span>
                                     <span><strong>&lt;8 min</strong> for 100 images</span>
                                     <span><strong>17→5</strong> containers</span>
                                 </div>
                                 <div class="card-tags">
-                                    <span>Python</span><span>FastAPI</span><span>React</span><span>Supabase</span><span>Celery</span><span>Redis</span><span>Docker</span>
+                                    <span>Python</span><span>FastAPI</span><span>React</span><span>Supabase</span><span>Celery</span><span>Redis (Celery broker)</span><span>Docker</span>
                                 </div>
                                 <div class="project-foot">
                                     <span class="project-url"><span class="project-url-dot"></span>Internal deployment · handover Nov 2026</span>
@@ -599,11 +628,16 @@
                                 </div>
                                 <h3 id="medical-camp-title">Medical Camp Portal</h3>
                                 <p class="project-desc">A medical camp management platform covering the full patient journey — registration, consultation and medicine dispensing — with role-based staff and patient logins.</p>
-                                <ul class="feature-list">
-                                    <li>Role-based workflows for staff and patients</li>
-                                    <li>Patient records and visit history across camps</li>
-                                    <li>Evolved from a single-organisation app to multi-tenant</li>
-                                </ul>
+                                <details class="m-expand project-more" open>
+                                    <summary class="m-expand-summary">Feature highlights<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                                    <div class="m-expand-body">
+                                        <ul class="feature-list">
+                                            <li>Role-based workflows for staff and patients</li>
+                                            <li>Patient records and visit history across camps</li>
+                                            <li>Evolved from a single-organisation app to multi-tenant</li>
+                                        </ul>
+                                    </div>
+                                </details>
                                 <div class="card-tags">
                                     <span>React.js</span><span>Zoho Catalyst</span><span>RBAC</span><span>Multi-tenant</span>
                                 </div>
@@ -647,46 +681,70 @@
                     </article>
 
                     <!-- Harmonix -->
-                    <article class="project-card stagger-item delay-200" aria-labelledby="harmonix-title">
+                    <article class="project-card project-wide stagger-item delay-200" aria-labelledby="harmonix-title">
                         <div class="project-topbar" aria-hidden="true"></div>
-                        <div class="project-copy">
-                            <div class="project-badges">
-                                <span class="badge-live"><span class="badge-live-dot"></span>Live</span>
-                                <span class="project-kicker">Music Academy</span>
+                        <div class="project-wide-grid">
+                            <div class="project-copy">
+                                <div class="project-badges">
+                                    <span class="badge-live"><span class="badge-live-dot"></span>Live</span>
+                                    <span class="project-kicker">Music Academy</span>
+                                    <span class="project-kicker">Admin Dashboard</span>
+                                </div>
+                                <h3 id="harmonix-title">Harmonix Musicals</h3>
+                                <p class="project-desc">A web application for a music academy with an admin dashboard, serverless backend functions and structured data management on Zoho Catalyst.</p>
+                                <details class="m-expand project-more" open>
+                                    <summary class="m-expand-summary">Feature highlights<span class="m-expand-icon" aria-hidden="true"></span></summary>
+                                    <div class="m-expand-body">
+                                        <ul class="feature-list">
+                                            <li>Admin dashboard for content updates and user management</li>
+                                            <li>Serverless backend functions on Zoho Catalyst</li>
+                                            <li>Structured data management for the academy's records</li>
+                                        </ul>
+                                    </div>
+                                </details>
+                                <div class="card-tags">
+                                    <span>React</span><span>Zoho Catalyst</span><span>Serverless</span><span>Admin Dashboard</span>
+                                </div>
+                                <div class="project-foot">
+                                    <a href="https://harmonix-musicals.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-primary-fx btn-sm" data-magnetic aria-label="Open Harmonix Musicals live site in a new tab">
+                                        Open Live App
+                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></svg>
+                                    </a>
+                                    <span class="project-url"><span class="project-url-dot"></span>harmonix-musicals.vercel.app</span>
+                                </div>
                             </div>
-                            <h3 id="harmonix-title">Harmonix Musicals</h3>
-                            <p class="project-desc">A web application for a music academy with an admin dashboard, serverless backend functions and structured data management on Zoho Catalyst.</p>
-                            <div class="card-tags">
-                                <span>React</span><span>Zoho Catalyst</span><span>Serverless</span><span>Admin Dashboard</span>
-                            </div>
-                            <div class="project-foot">
-                                <a href="https://harmonix-musicals.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link" aria-label="Open Harmonix Musicals live site in a new tab">
-                                    Visit Live Site
-                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M9 7h8v8"/></svg>
-                                </a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <!-- A2Z Converters -->
-                    <article class="project-card stagger-item delay-300" aria-labelledby="a2z-title">
-                        <div class="project-topbar violet" aria-hidden="true"></div>
-                        <div class="project-copy">
-                            <div class="project-badges">
-                                <span class="status-badge status-badge-wip"><span class="status-dot"></span>In Development</span>
-                                <span class="project-kicker">File Tooling</span>
-                            </div>
-                            <h3 id="a2z-title">A2Z Converters</h3>
-                            <p class="project-desc">Automated document and image conversion with online editing and batch processing across multiple file formats.</p>
-                            <div class="card-tags">
-                                <span>Node.js</span><span>Express</span><span>React</span><span>Batch Processing</span>
-                            </div>
-                            <div class="project-foot">
-                                <span class="project-link-disabled" aria-disabled="true">Private beta · details soon</span>
+                            <div class="project-preview" aria-hidden="true">
+                                <div class="preview-window">
+                                    <div class="preview-chrome">
+                                        <span class="preview-dot red"></span><span class="preview-dot amber"></span><span class="preview-dot green"></span>
+                                        <span class="preview-url">harmonix-musicals.vercel.app/admin</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-topbar">
+                                            <span class="preview-emblem violet">H</span>
+                                            <span class="preview-brand">Harmonix</span>
+                                            <span class="preview-chip">ADMIN</span>
+                                        </div>
+                                        <div class="preview-tabs"><span class="active">Content</span><span>Users</span><span>Settings</span></div>
+                                        <div class="preview-list">
+                                            <div class="preview-row"><span class="preview-row-dot"></span><span class="preview-row-line"></span><span class="preview-row-pill ok">Published</span></div>
+                                            <div class="preview-row"><span class="preview-row-dot"></span><span class="preview-row-line short"></span><span class="preview-row-pill ok">Published</span></div>
+                                            <div class="preview-row"><span class="preview-row-dot"></span><span class="preview-row-line"></span><span class="preview-row-pill warn">Draft</span></div>
+                                            <div class="preview-row"><span class="preview-row-dot"></span><span class="preview-row-line short"></span><span class="preview-row-pill">Scheduled</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="preview-scan"></div>
+                                </div>
+                                <p class="preview-caption">Admin dashboard preview</p>
                             </div>
                         </div>
                     </article>
                 </div>
+
+                <p class="projects-also">
+                    <span class="projects-also-label">Also built</span>
+                    <strong>A2Z Converters</strong> — automated document and image conversion with online editing and batch processing. In development, private beta.
+                </p>
 
                 <div class="projects-more">
                     <a href="https://github.com/venkatanarayana15" target="_blank" rel="noopener noreferrer" class="btn-ghost-fx btn-sm">
@@ -703,7 +761,7 @@
             <div class="section-glow glow-b" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Technical stack</span>
+                    <span class="section-kicker">05 · Technical stack</span>
                     <h2 id="skills-title" class="section-title">Tools I reach for.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p class="section-sub">Grouped the way the work actually happens — discovery to deployment.</p>
@@ -761,9 +819,9 @@
                         <p>Services</p>
                         <div class="skill-tags">
                             <span class="skill-tag"><i class="devicon-python-plain colored" aria-hidden="true"></i>Python</span>
-                            <span class="skill-tag">FastAPI</span>
+                            <span class="skill-tag"><i class="devicon-fastapi-plain colored" aria-hidden="true"></i>FastAPI</span>
                             <span class="skill-tag"><i class="devicon-nodejs-plain colored" aria-hidden="true"></i>Node.js</span>
-                            <span class="skill-tag">Express.js</span>
+                            <span class="skill-tag"><i class="devicon-express-original" aria-hidden="true"></i>Express.js</span>
                             <span class="skill-tag">REST APIs</span>
                             <span class="skill-tag">API Integration</span>
                         </div>
@@ -773,12 +831,12 @@
                         <div class="skill-head"><span class="skill-index">06</span><h3>Data &amp; Vector</h3></div>
                         <p>Storage</p>
                         <div class="skill-tags">
-                            <span class="skill-tag">PostgreSQL</span>
-                            <span class="skill-tag">MySQL</span>
-                            <span class="skill-tag">Supabase</span>
-                            <span class="skill-tag">ChromaDB</span>
+                            <span class="skill-tag"><i class="devicon-postgresql-plain colored" aria-hidden="true"></i>PostgreSQL</span>
+                            <span class="skill-tag"><i class="devicon-mysql-plain colored" aria-hidden="true"></i>MySQL</span>
+                            <span class="skill-tag"><i class="devicon-supabase-plain colored" aria-hidden="true"></i>Supabase</span>
+                            <span class="skill-tag"><img class="skill-logo" src="chroma-logo.png" alt="" width="14" height="14" loading="lazy">ChromaDB</span>
                             <span class="skill-tag">Vector Embeddings</span>
-                            <span class="skill-tag">Catalyst Data Store</span>
+                            <span class="skill-tag"><img class="skill-logo" src="zoho-logo.png" alt="" width="14" height="14" loading="lazy">Catalyst Data Store</span>
                         </div>
                     </article>
 
@@ -786,12 +844,12 @@
                         <div class="skill-head"><span class="skill-index">07</span><h3>Cloud &amp; DevOps</h3></div>
                         <p>Deployment</p>
                         <div class="skill-tags">
-                            <span class="skill-tag">AWS</span>
+                            <span class="skill-tag"><i class="devicon-amazonwebservices-plain colored" aria-hidden="true"></i>AWS</span>
                             <span class="skill-tag"><i class="devicon-docker-plain colored" aria-hidden="true"></i>Docker</span>
                             <span class="skill-tag">Multi-Stage Builds</span>
-                            <span class="skill-tag">GCP VM</span>
-                            <span class="skill-tag">Zoho Catalyst</span>
-                            <span class="skill-tag">Vercel</span>
+                            <span class="skill-tag"><i class="devicon-googlecloud-plain colored" aria-hidden="true"></i>GCP VM</span>
+                            <span class="skill-tag"><img class="skill-logo" src="zoho-logo.png" alt="" width="14" height="14" loading="lazy">Zoho Catalyst</span>
+                            <span class="skill-tag"><i class="devicon-vercel-line" aria-hidden="true"></i>Vercel</span>
                             <span class="skill-tag"><i class="devicon-github-original" aria-hidden="true"></i>GitHub</span>
                         </div>
                     </article>
@@ -800,12 +858,12 @@
                         <div class="skill-head"><span class="skill-index">08</span><h3>Tools</h3></div>
                         <p>Automation</p>
                         <div class="skill-tags">
-                            <span class="skill-tag">n8n</span>
-                            <span class="skill-tag">Claude Code</span>
-                            <span class="skill-tag">OpenCode</span>
-                            <span class="skill-tag">Ollama</span>
-                            <span class="skill-tag">Antigravity</span>
-                            <span class="skill-tag">VS Code</span>
+                            <span class="skill-tag"><img class="skill-logo" src="n8n-logo.png" alt="" width="14" height="14" loading="lazy">n8n</span>
+                            <span class="skill-tag"><i class="devicon-claudecode-original colored" aria-hidden="true"></i>Claude Code</span>
+                            <span class="skill-tag"><svg class="skill-logo" viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M22 24H2V0h20zM17 4.8H7v14.4h10z"/></svg>OpenCode</span>
+                            <span class="skill-tag"><i class="devicon-ollama-plain" aria-hidden="true"></i>Ollama</span>
+                            <span class="skill-tag"><i class="devicon-antigravity-plain colored" aria-hidden="true"></i>Antigravity</span>
+                            <span class="skill-tag"><i class="devicon-vscode-plain colored" aria-hidden="true"></i>VS Code</span>
                         </div>
                     </article>
                 </div>
@@ -818,13 +876,13 @@
             <div class="section-glow glow-c" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Track record</span>
+                    <span class="section-kicker">06 · Track record</span>
                     <h2 id="achievements-title" class="section-title">Built under pressure.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p class="section-sub">National hackathon finals, team leadership and a client delivery that closed on time.</p>
                 </div>
 
-                <div class="achievement-grid">
+                <div class="achievement-grid" aria-label="Achievements">
                     <article class="achievement-card achievement-lead stagger-item">
                         <div class="achievement-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 15.4 7.2 17.9l.9-5.4L4.2 8.7l5.4-.8L12 3z"/></svg>
@@ -868,12 +926,12 @@
             <div class="section-bg" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Foundation</span>
+                    <span class="section-kicker">07 · Foundation</span>
                     <h2 id="education-title" class="section-title">Education</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                 </div>
 
-                <div class="education-grid">
+                <div class="education-grid" aria-label="Education">
                     <article class="education-card stagger-item">
                         <span class="education-year">2025</span>
                         <h3>B.Tech — Information Technology</h3>
@@ -902,12 +960,12 @@
             <div class="section-glow glow-b" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Beyond code</span>
+                    <span class="section-kicker">08 · Beyond code</span>
                     <h2 id="interests-title" class="section-title">Service, hackathons, hardware.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                 </div>
 
-                <div class="interest-grid">
+                <div class="interest-grid" aria-label="Interests">
                     <article class="interest-card stagger-item">
                         <div class="interest-icon" aria-hidden="true">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 21s-7-4.4-7-10a4 4 0 017-2.6A4 4 0 0119 11c0 5.6-7 10-7 10z"/></svg>
@@ -945,7 +1003,7 @@
             <div class="contact-glow" aria-hidden="true"></div>
             <div class="section-inner">
                 <div class="section-head">
-                    <span class="section-kicker">Contact</span>
+                    <span class="section-kicker">09 · Contact</span>
                     <h2 id="contact-title" class="section-title">Let's build something that ships.</h2>
                     <div class="section-rule title-rule" aria-hidden="true"></div>
                     <p class="section-sub">Open to Forward Deployed Engineer, AI Engineer and full-stack roles. I reply fast.</p>
@@ -957,7 +1015,7 @@
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.9 5.3a2 2 0 002.2 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
                         </span>
                         <span class="contact-label">Email</span>
-                        <span class="contact-value">venkatnarayana727@gmail.com</span>
+                        <span class="contact-value">venkatnarayana727@<wbr>gmail.com</span>
                     </a>
 
                     <a href="tel:+917010919624" class="contact-card">
@@ -1003,7 +1061,6 @@
 
     <!-- Scroll HUD -->
     <div class="hud" id="hud" aria-hidden="true">
-        <div class="hud-line"><span class="hud-dot"></span><span id="hud-section">HERO</span></div>
         <div class="hud-track"><span id="hud-progress"></span></div>
         <div class="hud-line hud-line-muted"><span id="hud-percent">00</span><span class="hud-slash">/</span><span>100</span><span class="hud-label">SCROLL</span></div>
     </div>
@@ -1032,7 +1089,6 @@
         </div>
         <div class="footer-bottom">
             <span>© 2026 Venkata Narayana G V. All rights reserved.</span>
-            <span>Designed &amp; built with precision.</span>
         </div>
     </footer>
 

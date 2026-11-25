@@ -1,0 +1,101 @@
+
+===== PAGE 1 (595x842) =====
+VENKATA NARAYANA G V
+F O R WA R D D E P L O Y E D E N G I N E E R | A I E N G I N E E R | A I F U L L - S TA C K D E V E L O P E R
+Chennai, Tamil Nadu, India | +91 7010919624 | venkatnarayana727@gmail.com
+LinkedIn:linkedin.com/in/venkata-narayana-g-v-454ba92a7| GitHub:github.com/venkatanarayana15
+Portfolio:portfolio-two-iota-80.vercel.app
+PROFESSIONAL SUMMARY
+Forward Deployed Engineer Intern at Tiny Magiq Innovations, assigned to a client project with Team Everest — an
+NGO running scholarship programmes — and given their OCR project, Centralize. Owned it end to end: from a single-
+form OCR tool to a centralized OCR and document-intelligence web application that extracts data from any
+handwritten form into a database, replacing fully manual data entry. Worked on-site at the client office twice a week,
+improving each process step by step with their team. The platform was validated on a GCP VM deployment and
+formally closed with complete documentation and handover in November 2026.
+E X P E R I E N C E
+Forward Deployed Engineer Intern - Tiny Magiq Innovations  Mar 2026 – Present | Chennai
+Key Project: Centralize - Centralized OCR and Document Intelligence Platform (Client: Team Everest NGO)
+Requirement:Team Everest NGO runs scholarship programmes for students. Students submit hand-filled
+scholarship application forms, and volunteers verify each student by visiting the student's home, asking the
+verification questions in person, filling the verification form by hand - covering the student's family background and
+situation - and uploading it. All forms arrive as digital uploads in PDF and image formats, and the handwritten data
+had to be extracted and saved into a database. Before this application, the client's team typed each form's data
+into the database manually; the platform automated that manual entry end to end.
+Phase 1:Built an OCR pipeline that auto-fetches new applications from Zoho Creator when the server starts,
+extracts data from the PDF and image uploads, and pushes it into Supabase; built a minimal frontend with a split
+view to verify and edit extracted data against the form.
+Client-embedded delivery:First built a full understanding of the client's needs and the complete requirement
+picture, then worked on-site at the client office twice a week with their team to improve each process step by step.
+Phase 2 (evolved requirement):Rebuilt the tool into a centralized OCR web application supporting any form -
+upload from the UI, per-document and overall batch status, export feature, Admin/User role-based access control
+(RBAC), and audit logs of user actions.
+Platform features built:Batch upload with a pipeline progress UI, auto-retry for failed tasks, recovery option for
+deleted files, Excel export with selective files and columns, and most settings configurable from the frontend UI
+without code changes.
+UI design:Designed the interface to match the client's existing application, as they requested — making the
+platform familiar, much simpler, and easier for their team to use.
+Template approach:Uploading a sample form in the template section automatically creates its layout and
+connects it to the database with its table and columns in a single click; templates are easy to edit or delete and are
+managed only by Admin users.
+Validation support:Every extraction shows a confidence percentage for the extracted data, so reviewers can
+easily spot low-confidence results and cross-verify them.
+Metrics feature:Surfaces repeated mistakes in a specific form or a specific field, so error patterns can be traced
+easily and improved in future.
+Backend hardening:Celery workers for background processing, with watchdogs that monitor and retry failed
+processes; Redis as the message broker; Lua-scripted rate limiting so AI model calls never hit 429 errors.
+Scale and results:Batches scaled from 10-15 PDFs to 108 files (100 images processed in under 8 minutes);
+deployment consolidated from 17 Docker services to 5 containers on a single PostgreSQL database; observability
+with Grafana and Sentry.
+Deployment and handover:Advised the client on VM deployment for their Azure environment, where they will run
+the application internally, embedded in their portal; answered their questions on whether the application can be
+deployed on a VM and what configuration it needs - specified a minimum of 4 GB RAM and 10 GB disk, plus the
+installation requirements, and supplied these as part of the delivery. Validated the full deployment on a GCP VM
+and gave the client a 30-day live access link that worked successfully; handed over the full working flow with step-
+by-step documentation and a formal project closure (Nov 2026).
+
+===== PAGE 2 (595x842) =====
+Incubation Trainee (Catalyst) - Zoho Corporation  Oct 2025 – Feb 2026 | Chennai
+Learned full-stack development with React.js, Node.js, and REST APIs - understanding how business workflow
+applications are built and why each part is designed the way it is.
+Learned to integrate Zoho CRM and external APIs with CRUD endpoints for data synchronization and automation.
+Learned data access and authentication using Zoho Catalyst Data Store and Authentication services.
+Tested APIs with Postman and documented workflows, integrations, and implementation details.
+Web Development Intern - Eagle Tech IT Solutions  Jul 2024 – Aug 2024 | Chennai
+Designed and deployed responsive websites using React.js, Node.js, HTML5, CSS3, and JavaScript.
+Delivered hosting, DNS configuration, and end-to-end implementation within a 6-week internship.
+S K I L L S
+Forward Deployed / Delivery:Requirements Discovery, Client Deployment, Demos, Documentation & Handover
+Solution Design:Requirements Gathering, Solution Scoping, System Architecture
+AI/LLM Automation:LLMs, RAG, AI Agents, Tool Calling, MCP Server, Context Management
+Programming/Web:Python, JavaScript, TypeScript, React.js, HTML5, CSS3, SQL
+Backend/API:FastAPI, Node.js, Express.js, REST APIs, API Integration
+Databases/Vector:PostgreSQL, MySQL, Supabase, ChromaDB, Vector Embeddings, Zoho Catalyst Data Store
+Cloud/DevOps:AWS, Docker, Multi-Stage Builds, GCP VM, Zoho Catalyst, Vercel, GitHub
+Tools:n8n Automations, Claude Code, OpenCode, Ollama, Antigravity, VS Code
+P R O J E C T S
+Harmonix Musicals- Web application with an admin dashboard, serverless backend functions, and structured
+data management on Zoho Catalyst; supports content updates and user management.
+Live:harmonix-musicals.vercel.app
+Medical Camp- Medical camp management web application with role-based workflows handling patient records
+from registration through consultation and medicine dispensing, with user login for tracking; started as a single-
+organisation application and evolved into a multi-organisation, multi-tenant application.
+Live:medical-camp.onslate.in/camps
+A2Z Converters- Automated document and image conversion with online editing and batch processing across
+multiple file formats. The tool simplifies file conversion workflows and supports efficient handling of various
+document and image types.
+A C H I E V E M E N T S
+Team Lead, A2Z CREATORS- leads a hackathon team competing at national-level events across India.
+TechCircuit Hackathon (We Code Coders)- National Finalist with team A2Z CREATORS, ranked 14th of 50
+finalist teams selected from 1,000+ registered teams (Certificate TCR-YV384F).
+Paytm Build for India AI Hackathon, Chennai (devSemble)- Finalist, Merchant Growth AI track, 15 Nov 2026.
+hackFront India— Finalist (National Finale selection, among 160 teams from 89 institutions)
+Hacktoberfest Hack Day Bengaluru 2026 (MLH)— Shortlisted for the finals with team A2Z CREATORS.
+EDUCATION
+B.Tech in Information Technology— Meenakshi College of Engineering, Chennai | 2025 |CGPA: 7.9/10
+Higher Secondary (12th)— Good Shepherd Matriculation Higher Secondary School, Chennai | 2021 |85%
+Secondary School Certificate (10th)— Good Shepherd Matriculation Higher Secondary School, Chennai | 2019 |82%
+I N T E R E S T S
+Service Coordinator, Valasaravakkam Samithi, Sri Sathya Sai Seva Organisation, Chennai — organizing and
+actively participating in service activities, weekly Bhajans, and outreach programmes.
+Attending hackathons and AI events; exploring emerging AI tools and technologies.
+Exploring how electronic devices work by opening, examining, diagnosing, and repairing them.
